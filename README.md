@@ -6,3 +6,6 @@ https://docs.google.com/spreadsheets/d/1TP5PmedcoiNoii8djzsq_43AKVQLWlqIV_7x5gpg
 
 # Design and UI
 https://docs.google.com/document/d/18Nl92MkNO2jgcvvisI1mfxPIGDtBHjYOVOvOU3BMl20/edit
+
+# Iteration Planning
+https://docs.google.com/document/d/1S_E1Xn3yiMWnNumNgbNkGHgAduJ-ByZe55-OAQItNX0/edit
