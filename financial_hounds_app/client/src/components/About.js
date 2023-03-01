@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function About(){
+const About = () => {
     return (
       <>
         <h1>Hello</h1>

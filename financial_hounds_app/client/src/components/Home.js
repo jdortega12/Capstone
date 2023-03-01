@@ -1,12 +1,9 @@
 import React from "react";
 import "../styles/Home.css";
-import NavBar from "./NavBar"
 
-
-function Home(){
+const Home = () => {
     return (
       <>
-      <NavBar/>
       <div className="home">
         <div className="headerContainer">
           <h1 className="header"> Loyola University Maryland </h1>

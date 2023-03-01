@@ -3,9 +3,9 @@ const userModel = require("../model/models");
 const app = express();
 
 //Post endpoints
-app.post("/add_student", async (request, response) => {
+app.post("/create_student", async (request, response) => {
     const student = new userModel(request.body);
-  
+    
     try {
       await student.save();
       response.send(student);

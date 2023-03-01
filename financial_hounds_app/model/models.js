@@ -13,6 +13,14 @@ const StudentSchema = new mongoose.Schema({
     type: String,
     default: true,
   },
+  class_year: {
+    type: Number,
+    default: 0
+  },
+  level: {
+    type: Number,
+    default: 0,
+  }
 });
 
 const Student = mongoose.model("Student", StudentSchema)
