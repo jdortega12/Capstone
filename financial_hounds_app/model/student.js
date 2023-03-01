@@ -15,11 +15,9 @@ const StudentSchema = new mongoose.Schema({
   },
   class_year: {
     type: String,
-    default: "2023"
   },
   level: {
     type: String,
-    default: "0",
   }
 });
 
