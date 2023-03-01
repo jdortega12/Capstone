@@ -1,16 +1,18 @@
 import React from 'react'
-import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home'
+import NavBar from './components/NavBar'
 
 function App() {
-  const [data, setData] = React.useState(null);
+  /*
+  /const [data, setData] = React.useState(null);
 
   React.useEffect(() => {
     fetch("/api")
       .then((res) => res.json())
       .then((data) => setData(data.message));
   }, []);
-
+  /*
   return (
     <div className="App">
       <header className="App-header">
@@ -18,7 +20,12 @@ function App() {
         <p>{!data ? "Loading..." : data}</p>
       </header>
     </div>
-  );
+  );*/
+  return(
+    <>
+      <Home/>
+    </>
+  )
 }
 
 export default App;
