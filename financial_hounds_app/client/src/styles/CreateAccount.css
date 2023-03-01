@@ -1,0 +1,36 @@
+.myDiv{
+    background-color: #0d4b34;
+    height: 100vh;
+}
+
+.myForm{
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    max-width: 30%;
+    margin-left: 350px;
+}
+
+.myLabel{
+    color: white;
+}
+
+.myButton{
+  margin-left: 60px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  justify-content: center;
+  background-color: #282c34;
+  height: 50px;
+  width: 180px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+button:hover {
+    background-color: #07090a;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+  }
