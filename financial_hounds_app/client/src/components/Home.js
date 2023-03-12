@@ -11,7 +11,7 @@ const Home = () => {
           <p className="paragraph"> Greyhound Financial Planning</p>
           </div>
           <div>
-          <button className="button"> Sign In </button>
+          <button className="button"> Login </button>
           </div>
         </div>
       </div>

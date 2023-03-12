@@ -3,13 +3,12 @@
 
 const express = require("express");
 const mongoose = require("mongoose");
-const Router = require("../routes/routes")
+const routesHandler = require("../routes/routes")
+const bodyParser = require('body-parser');
 const PORT = 3001
 
-const app = express();
 
-app.use(express.json());
-
+//connect to DB
 mongoose.connect("mongodb+srv://jdortega:FinanceBoys@cluster0.1ktgc7g.mongodb.net/?retryWrites=true&w=majority")
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
@@ -17,11 +16,11 @@ db.once("open", function () {
   console.log("Connected successfully");
 });
 
-app.use(Router);
-
-
+const app = express();
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json())
+app.use('/', routesHandler)
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
-

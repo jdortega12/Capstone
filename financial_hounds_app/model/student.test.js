@@ -27,11 +27,21 @@ afterAll(async () => {
 describe("Student model", () => {
   it("create & save student successfully", async () => {
     const validStudent = new Student(studentData);
-    const savedStudent = await validStudent.save();
+    const savedStudent = await Student.create(validStudent);
     // Object Id should be defined when successfully saved to MongoDB.
     expect(savedStudent._id).toBeDefined();
     expect(savedStudent.name).toBe(studentData.name);
     expect(savedStudent.username).toBe(studentData.username);
   });
-  
+});
+
+describe("Student model", () => {
+  it("find student for login", async () => {
+    const validStudent = new Student(studentData);
+    const savedStudent = await Student.create(validStudent);
+
+    const foundStudent = await Student.login(savedStudent.username);
+    expect(foundStudent.username).toBe(studentData.username);
+    expect(foundStudent.password).toBe(studentData.password);
+  });
 });
