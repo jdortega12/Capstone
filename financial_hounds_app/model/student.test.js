@@ -40,7 +40,7 @@ describe("Student model", () => {
     const validStudent = new Student(studentData);
     const savedStudent = await Student.create(validStudent);
 
-    const foundStudent = await Student.login(savedStudent.username);
+    const foundStudent = await Student.login(savedStudent.username, savedStudent.password);
     expect(foundStudent.username).toBe(studentData.username);
     expect(foundStudent.password).toBe(studentData.password);
   });

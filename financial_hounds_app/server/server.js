@@ -3,6 +3,7 @@
 
 const express = require("express");
 const mongoose = require("mongoose");
+var cors = require('cors')
 const routesHandler = require("../routes/routes")
 const bodyParser = require('body-parser');
 const PORT = 3001
@@ -17,6 +18,7 @@ db.once("open", function () {
 });
 
 const app = express();
+app.use(cors())
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json())
 app.use('/', routesHandler)

@@ -10,7 +10,7 @@ const Login = () => {
 
     return (
       <div className="myDiv">
-        <form className="myForm" method="POST" action="http://localhost:3001/login">
+        <form className="myForm" method="POST" action="/login">
             <h3 className="myLabelLogin">Login</h3>
             <div className="mb-3">
                 <label className="myLabelLogin">Username</label>

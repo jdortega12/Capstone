@@ -1,7 +1,7 @@
 import React from 'react';
 import "../styles/CreateAccount.css";
 import { useState } from 'react';
-//import handleCreateAccount from "../event-handler/HandleCreateAccount"
+import axios from 'axios';
 
 const CreateAccount = () => {
 
@@ -9,13 +9,30 @@ const CreateAccount = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
+    const handleSubmit = async(e) => {
+      const studentData = {"name": name, "username": username, "password": password};
+      alert(JSON.stringify(studentData));
+
+      try{
+        await axios({
+          method: "post",
+          url: "/createaccount",
+          data: studentData,
+        });
+      } catch(error){
+        console.log(error)
+      }
+        
+    };
+
     return (
     <div className="myDiv">
-      <form className="myForm" method='POST' action='http://localhost:3001/createaccount'>
+      <form className="myForm" method='POST'>
         <h3 className="myLabel">Create Account</h3>
         <div className="mb-3">
           <label className="myLabel">Full name</label>
           <input
+            name="name"
             type="text"
             value = {name}
             onChange = {(e) => setName(e.target.value)}
@@ -26,6 +43,7 @@ const CreateAccount = () => {
         <div className="mb-3">
           <label className="myLabel">Username</label>
           <input
+          name="username"
           type="text" 
           value = {username}
           onChange = {(e) => setUsername(e.target.value)}
@@ -35,6 +53,7 @@ const CreateAccount = () => {
         <div className="mb-3">
           <label className="myLabel">Password</label>
           <input
+            name="password"
             value = {password}
             onChange = {(e) => setPassword(e.target.value)}
             type="password"
@@ -43,7 +62,7 @@ const CreateAccount = () => {
           />
         </div>
         <div className="d-grid">
-          <button type="submit" className="myButton">
+          <button onClick={()=>handleSubmit()} className="myButton">
             Submit
           </button>
         </div>
