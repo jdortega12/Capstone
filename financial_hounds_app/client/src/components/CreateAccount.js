@@ -11,7 +11,7 @@ const CreateAccount = () => {
 
     return (
     <div className="myDiv">
-      <form className="myForm" method='POST' action='http://10.0.0.49:3001/createaccount'>
+      <form className="myForm" method='POST' action='http://localhost:3001/createaccount'>
         <h3 className="myLabel">Create Account</h3>
         <div className="mb-3">
           <label className="myLabel">Full name</label>
@@ -44,7 +44,7 @@ const CreateAccount = () => {
         </div>
         <div className="d-grid">
           <button type="submit" className="myButton">
-            Create Account
+            Submit
           </button>
         </div>
       </form>

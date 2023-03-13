@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import About from "./components/About";
-import Features from "./components/Features"
 import CreateAccount from "./components/CreateAccount"
+import Login from "./components/Login"
 
 
 export default function App() {
@@ -15,8 +15,8 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/features" element={<Features />} />
           <Route path="/createaccount" element={<CreateAccount />} />
+          <Route path="/login" element={<Login />} />
         </Route>
       </Routes>
     </BrowserRouter>

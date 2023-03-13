@@ -6,6 +6,8 @@ const studentHandler = require('../handlers/handlers');
 //app.use(express.json());
 
 // Student Actions 
-router.post('http://10.0.0.49:3001/createaccount', studentHandler.postCreate);
+router.post('http://localhost:3001/createaccount', studentHandler.postCreate);
+
+router.post('http://localhost:3001/login', studentHandler.postLogin)
 
 module.exports = router;

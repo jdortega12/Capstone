@@ -18,11 +18,11 @@ exports.postCreate = function(res,req){
   }
 };
 
-exports.login = function(req, res){
+exports.postLogin = function(req, res){
   //send in user and password, get user by username, if the passwords match, set session
   let pusername = req.body.username;
   let pwd = req.body.password;
-  let student = await studentModel.login(pusername);
+  let student = studentModel.login(pusername);
   if(student != null){
     student.password = null;
     req.session.student

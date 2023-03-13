@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
-import {Container, Nav, Navbar} from 'react-bootstrap'
-import "bootstrap/dist/css/bootstrap.min.css"
+import {Container, Nav, Navbar} from 'react-bootstrap';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const NavBar = () => {
     return (
@@ -14,8 +14,8 @@ const NavBar = () => {
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="me-auto">
         <Link to="./About" style={{color: "white", padding: 10, textDecoration: 'none'}}>About</Link>
-        <Link to="./Features" style={{color: "white", padding: 10, textDecoration: 'none'}}>Features</Link>
         <Link to="./CreateAccount" style={{color: "white", padding: 10, textDecoration: 'none'}}>Create Account</Link>
+        <Link to="./Login" style={{color: "white", padding: 10, textDecoration: 'none'}}>Login</Link>
       </Nav>
     </Navbar.Collapse>
   </Container>
