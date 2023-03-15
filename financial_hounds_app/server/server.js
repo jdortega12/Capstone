@@ -7,15 +7,10 @@ var cors = require('cors')
 const routesHandler = require("../routes/routes")
 const bodyParser = require('body-parser');
 const PORT = 3001
-
+const dbConn = require('../model/DbConnection');
 
 //connect to DB
-mongoose.connect("mongodb+srv://jdortega:FinanceBoys@cluster0.1ktgc7g.mongodb.net/?retryWrites=true&w=majority")
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error: "));
-db.once("open", function () {
-  console.log("Connected successfully");
-});
+dbConn.connect();
 
 const app = express();
 app.use(cors())

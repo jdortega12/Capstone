@@ -30,6 +30,7 @@ exports.create = async function(newStudent){
   console.log("Creating a new student")
   const student = new Student(newStudent);
   await student.save();
+  console.log("Successfully saved!")
   return student;
 }
 
@@ -38,4 +39,4 @@ exports.login = async function(pusername, pwd){
   return student;
 }
 
-module.exports = Student;
+//module.exports = Student;

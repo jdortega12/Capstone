@@ -4,17 +4,15 @@ const app = express();
 
 //Student create
 exports.postCreate = function(req,res){
-  //console.log(JSON.stringify(req.body))
   let newStudent = {};
   newStudent.name = req.body.name;
   newStudent.username = req.body.username;
   newStudent.password = req.body.password;
   console.log(newStudent);
-  
   try{
-    studentModel.create(newStudent)
-    res.send(student);
-    res.status(200);
+    student = studentModel.create(newStudent)
+    //student = res.send(student);
+    res.status(200).send(student);
   } catch (error) {
     res.status(500).send(error)
   }
