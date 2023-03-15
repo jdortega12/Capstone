@@ -1,10 +1,10 @@
 import React from 'react';
-import Home from '../components/Home';
+import CreateAccount from '../components/CreateAccount';
 import renderer from 'react-test-renderer';
 
-test("Home Page Snapshot Test", ()=> {
+test("Create Account Snapshot Test", ()=> {
     const component = renderer.create(
-        <Home />
+        <CreateAccount />
     );
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();

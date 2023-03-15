@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Page Snapshot Test 1`] = `
+<div
+  className="home"
+>
+  <div
+    className="headerContainer"
+  >
+    <h1
+      className="header"
+    >
+       Loyola University Maryland 
+    </h1>
+    <div>
+      <p
+        className="paragraph"
+      >
+         Greyhound Financial Planning
+      </p>
+    </div>
+  </div>
+</div>
+`;
