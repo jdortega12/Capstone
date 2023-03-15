@@ -11,7 +11,6 @@ exports.postCreate = function(req,res){
   console.log(newStudent);
   try{
     student = studentModel.create(newStudent)
-    //student = res.send(student);
     res.status(200).send(student);
   } catch (error) {
     res.status(500).send(error)
