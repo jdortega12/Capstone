@@ -8,6 +8,8 @@ const routesHandler = require("../routes/routes")
 const bodyParser = require('body-parser');
 const PORT = 3001
 const dbConn = require('../model/DbConnection');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 //connect to DB
 dbConn.connect();
@@ -17,6 +19,18 @@ app.use(cors())
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json())
 app.use('/', routesHandler)
+
+app.use(session({
+  store: MongoStore.create({
+    mongoUrl: "mongodb+srv://jdortega:FinanceBoys@cluster0.1ktgc7g.mongodb.net/?retryWrites=true&w=majority",
+  }),
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7 * 2 // two weeks
+  },
+  secret:'anystringoftext',
+  saveUninitialized: true,
+  resave: true,
+}));
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
