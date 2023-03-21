@@ -12,7 +12,7 @@ const CreateAccount = () => {
     const handleSubmit = async(e) => {
       const studentData = {"name": name, "username": username, "password": password};
       alert(JSON.stringify(studentData));
-
+  
       try{
         await axios({
           method: "post",

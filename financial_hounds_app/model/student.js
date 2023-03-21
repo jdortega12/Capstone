@@ -32,6 +32,7 @@ exports.create = async function(newStudent){
   console.log(student)
 
   await student.save()
+  
   console.log("Successfully saved!")
   return student;
 }

@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create Account Snapshot Test 1`] = `
+<div
+  className="myDiv"
+>
+  <form
+    className="myForm"
+    method="POST"
+  >
+    <h3
+      className="myLabel"
+    >
+      Create Account
+    </h3>
+    <div
+      className="mb-3"
+    >
+      <label
+        className="myLabel"
+      >
+        Full name
+      </label>
+      <input
+        className="form-control"
+        name="name"
+        onChange={[Function]}
+        placeholder="Full name"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="mb-3"
+    >
+      <label
+        className="myLabel"
+      >
+        Username
+      </label>
+      <input
+        className="form-control"
+        name="username"
+        onChange={[Function]}
+        placeholder="Enter username"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="mb-3"
+    >
+      <label
+        className="myLabel"
+      >
+        Password
+      </label>
+      <input
+        className="form-control"
+        name="password"
+        onChange={[Function]}
+        placeholder="Enter password"
+        type="password"
+        value=""
+      />
+    </div>
+    <div
+      className="d-grid"
+    >
+      <button
+        className="myButton"
+        onClick={[Function]}
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+`;

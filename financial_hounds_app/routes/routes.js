@@ -8,4 +8,6 @@ router.post('/createaccount', studentHandler.postCreate);
 
 router.post('/login', studentHandler.postLogin)
 
+router.post('/logout', studentHandler.postLogout)
+
 module.exports = router;

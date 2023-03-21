@@ -12,32 +12,37 @@ exports.postCreate = function(req,res){
 
   try{
     savedStudent = studentModel.create(newStudent);
-    res.status(200);
-    res.send("Saved Successfully");
-    res.end;
+    res.sendStatus(200);
+    res.redirect("/Home");
   } catch (error) {
-    res.status(500).send(error)
-    res.end;
+    res.sendStatus(500).send(error)
+    res.redirect("/Home");
   }
 };
 
+//Login student
 exports.postLogin = function(req, res){
   //send in user and password, get user by username, if the passwords match, set session
   let pusername = req.body.username;
   let pwd = req.body.password;
 
+  console.log(pusername, pwd)
+
   let student = studentModel.login(pusername, pwd);
 
   if(student != null){
     student.password = null;
-    
+    console.log(student)
     req.session.student = student;
-    res.status(200)
+    res.sendStatus(200)
+    res.redirect("http://localhost:3000/Home");
   }else{
-    res.status(500)
+    res.sendStatus(500)
+    res.redirect("http://localhost:3000/Home");
   }
 };
 
+//Logout student
 exports.postLogout = function(req, res){
   req.session.user = null;
   res.status(200)

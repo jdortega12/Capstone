@@ -1,5 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import {Container, Nav, Navbar} from 'react-bootstrap';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const NavBar = () => {
@@ -15,7 +16,10 @@ const NavBar = () => {
       <Nav className="me-auto">
         <Link to="./About" style={{color: "white", padding: 10, textDecoration: 'none'}}>About</Link>
         <Link to="./CreateAccount" style={{color: "white", padding: 10, textDecoration: 'none'}}>Create Account</Link>
-        <Link to="./Login" style={{color: "white", padding: 10, textDecoration: 'none'}}>Login</Link>
+        <NavDropdown style={{padding: 2, color:"white"}} title="Account" >
+          <NavDropdown.Item href="./Login">Login</NavDropdown.Item>
+            <NavDropdown.Item as="button">Logout</NavDropdown.Item>
+            </NavDropdown>
       </Nav>
     </Navbar.Collapse>
   </Container>
