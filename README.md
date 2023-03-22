@@ -10,5 +10,10 @@ https://docs.google.com/document/d/18Nl92MkNO2jgcvvisI1mfxPIGDtBHjYOVOvOU3BMl20/
 # Iteration Planning
 https://docs.google.com/document/d/1S_E1Xn3yiMWnNumNgbNkGHgAduJ-ByZe55-OAQItNX0/edit
 
+# How to Run
+In one terminal navigate to the server package and execute "node server.js"
+In a seperate terminal navigate to the client package and execute "npm start"
+Testing: N/A
+
 # Iteration 1 Testing
 Not complete, issues are being worked through
