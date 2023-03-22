@@ -10,9 +10,6 @@ const Home = () => {
           <div>
           <p className="paragraph"> Greyhound Financial Planning</p>
           </div>
-          <div>
-          <button className="button"> Sign In </button>
-          </div>
         </div>
       </div>
       </>

@@ -11,18 +11,17 @@ const StudentSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    default: true,
+    required: true,
   },
   class_year: {
     type: String,
-    default: "2023"
+    default: "2023",
   },
   level: {
     type: String,
-    default: "0",
+    default: "beginner",
   }
 });
 
-const Student = mongoose.model("Student", StudentSchema)
-
+const Student = mongoose.model("Student", StudentSchema);
 module.exports = Student;

@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Snapshot Test 1`] = `
+<div
+  className="myDiv"
+>
+  <form
+    className="myForm"
+    method="POST"
+  >
+    <h3
+      className="myLabelLogin"
+    >
+      Login
+    </h3>
+    <div
+      className="mb-3"
+    >
+      <label
+        className="myLabelLogin"
+      >
+        Username
+      </label>
+      <input
+        className="form-control"
+        onChange={[Function]}
+        placeholder="Username"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="mb-3"
+    >
+      <label
+        className="myLabelLogin"
+      >
+        Password
+      </label>
+      <input
+        className="form-control"
+        onChange={[Function]}
+        placeholder="Username"
+        type="password"
+        value=""
+      />
+    </div>
+    <div
+      className="d-grid"
+    >
+      <button
+        className="myButton"
+        onClick={[Function]}
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+`;

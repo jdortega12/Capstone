@@ -1,34 +1,13 @@
-const express = require("express");
-const userModel = require("../model/models");
-const app = express();
+const express = require('express'); //import express
+const router = express.Router();
+const studentHandler = require('../handlers/handlers');
 
-//Post endpoints
-app.post("/create_student", async (request, response) => {
-    const student = new userModel(request.body);
-    
-    try {
-      await student.save();
-      response.send(student);
-    } catch (error) {
-      response.status(500).send(error);
-    }
-});
+// Student Actions 
+// URL is server URL
+router.post('/createaccount', studentHandler.postCreate);
 
-//Get endpoints
-app.get("/students", async (request, response) => {
-    const students = await userModel.find({});
-  
-    try {
-      response.send(students);
-    } catch (error) {
-      response.status(500).send(error);
-    }
-  });
+router.post('/login', studentHandler.postLogin)
 
+router.post('/logout', studentHandler.postLogout)
 
-//Display message through react to screen
-app.get("/api", (req, res) => {
-    res.json({ message: "Hello from server!" });
-});
-
-  module.exports = app;
+module.exports = router;

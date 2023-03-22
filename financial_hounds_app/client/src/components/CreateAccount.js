@@ -1,34 +1,38 @@
 import React from 'react';
 import "../styles/CreateAccount.css";
 import { useState } from 'react';
-
+import axios from 'axios';
 
 const CreateAccount = () => {
 
     const [name, setName] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [classYear, setClassYear] = useState("");
-    const [level, setLevel] = useState("");
 
-    //Make into 
-    /*
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const student = [name, username, password, classYear, level];
-        var studentJson = JSON.stringify(student);
-
-        alert(`You entered: ${name}, ${username}, ${password}, ${classYear}, ${level}`)
-      }*/
-
+    const handleSubmit = async(e) => {
+      const studentData = {"name": name, "username": username, "password": password};
+      alert(JSON.stringify(studentData));
+  
+      try{
+        await axios({
+          method: "post",
+          url: "/createaccount",
+          data: studentData,
+        });
+      } catch(error){
+        console.log(error)
+      }
+        
+    };
 
     return (
     <div className="myDiv">
-      <form className="myForm" method='post' action='/create_account'>
+      <form className="myForm" method='POST'>
         <h3 className="myLabel">Create Account</h3>
         <div className="mb-3">
           <label className="myLabel">Full name</label>
           <input
+            name="name"
             type="text"
             value = {name}
             onChange = {(e) => setName(e.target.value)}
@@ -39,6 +43,7 @@ const CreateAccount = () => {
         <div className="mb-3">
           <label className="myLabel">Username</label>
           <input
+          name="username"
           type="text" 
           value = {username}
           onChange = {(e) => setUsername(e.target.value)}
@@ -48,6 +53,7 @@ const CreateAccount = () => {
         <div className="mb-3">
           <label className="myLabel">Password</label>
           <input
+            name="password"
             value = {password}
             onChange = {(e) => setPassword(e.target.value)}
             type="password"
@@ -56,8 +62,8 @@ const CreateAccount = () => {
           />
         </div>
         <div className="d-grid">
-          <button type="submit" className="myButton">
-            Sign Up
+          <button onClick={()=>handleSubmit()} className="myButton">
+            Submit
           </button>
         </div>
       </form>

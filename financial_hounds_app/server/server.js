@@ -3,25 +3,35 @@
 
 const express = require("express");
 const mongoose = require("mongoose");
-const Router = require("../routes/routes")
+var cors = require('cors')
+const routesHandler = require("../routes/routes")
+const bodyParser = require('body-parser');
 const PORT = 3001
+const dbConn = require('../model/DbConnection');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+
+//connect to DB
+dbConn.connect();
 
 const app = express();
+app.use(cors())
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json())
+app.use('/', routesHandler)
 
-app.use(express.json());
-
-mongoose.connect("mongodb+srv://jdortega:FinanceBoys@cluster0.1ktgc7g.mongodb.net/?retryWrites=true&w=majority")
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error: "));
-db.once("open", function () {
-  console.log("Connected successfully");
-});
-
-app.use(Router);
-
-
+app.use(session({
+  store: MongoStore.create({
+    mongoUrl: "mongodb+srv://jdortega:FinanceBoys@cluster0.1ktgc7g.mongodb.net/?retryWrites=true&w=majority",
+  }),
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7 * 2 // two weeks
+  },
+  secret:'anystringoftext',
+  saveUninitialized: true,
+  resave: true,
+}));
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
-
