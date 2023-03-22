@@ -30,7 +30,7 @@ exports.postLogin = function(req, res){
 
   console.log(accountInfo);
   res.redirect("/Home");
-  /*let student = studentCRUD.login(pusername, pwd);
+  let student = studentCRUD.login(pusername, pwd);
 
   if(student != null){
     student.password = null;
@@ -42,12 +42,13 @@ exports.postLogin = function(req, res){
   }else{
     //res.sendStatus(500)
     res.redirect("/Home");
-  }*/
+  }
 };
 
 //Logout student
 exports.postLogout = function(req, res){
   req.session.user = null;
-  res.status(200);
+  console.log("Logged Out")
+  //res.status(200);
   res.redirect("/Home");
 };

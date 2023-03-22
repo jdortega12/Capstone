@@ -2,8 +2,19 @@ import { Outlet, Link } from "react-router-dom";
 import {Container, Nav, Navbar} from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from 'axios';
 
 const NavBar = () => {
+
+    const handleLogout = async(e) => {
+    try{
+      alert("Logout pressed");
+      await axios.get('/logout');
+    } catch(error){
+      console.log(error)
+    }
+      
+    };
     return (
         <>
 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -18,8 +29,8 @@ const NavBar = () => {
         <Link to="./CreateAccount" style={{color: "white", padding: 10, textDecoration: 'none'}}>Create Account</Link>
         <NavDropdown style={{padding: 2, color:"white"}} title="Account" >
           <NavDropdown.Item href="./Login">Login</NavDropdown.Item>
-            <NavDropdown.Item as="button">Logout</NavDropdown.Item>
-            </NavDropdown>
+            <NavDropdown.Item as="button" onClick={()=> handleLogout()}>Logout</NavDropdown.Item>
+        </NavDropdown>
       </Nav>
     </Navbar.Collapse>
   </Container>
@@ -30,19 +41,3 @@ const NavBar = () => {
   };
   
 export default NavBar;
-
-/*
-      <>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/About">About</Link>
-            </li>
-          </ul>
-        </nav>
-  
-        <Outlet />
-      </>*/

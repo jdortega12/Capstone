@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const studentModel  = require("./student.js");
-const studentCRUD = require("./studentCRUD.js")
+const studentCRUD = require("./studentCRUD.js");
 const db = require("../setup/db");
 
 const studentData = {
@@ -39,7 +39,6 @@ afterAll(async () => {
         const savedStudent = await studentCRUD.createStudent(validStudent);
     
         const foundStudent = await studentCRUD.login(savedStudent.username, savedStudent.password);
-        //const foundStudent = await studentModel.findOne({username: savedStudent.username, password: savedStudent.password});
         expect(foundStudent.username).toBe(studentData.username);
         expect(foundStudent.password).toBe(studentData.password);
       });
