@@ -23,23 +23,5 @@ const StudentSchema = new mongoose.Schema({
   }
 });
 
-const Student = mongoose.model("Student", StudentSchema)
-
-//Create a new student
-exports.create = async function(newStudent){
-  console.log("Creating a new student")
-  student = new Student(newStudent);
-  console.log(student)
-
-  await student.save()
-  
-  console.log("Successfully saved!")
-  return student;
-}
-
-exports.login = async function(pusername, pwd){
-  const student = await Student.findOne({username: pusername, password: pwd});
-  return student;
-}
-
+const Student = mongoose.model("Student", StudentSchema);
 module.exports = Student;

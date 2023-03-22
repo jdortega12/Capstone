@@ -1,4 +1,4 @@
-//Handler testings
+//handler testings
 const studentModel = require('../model/student');
 
 const mockRequest = jest.fn(() => 
