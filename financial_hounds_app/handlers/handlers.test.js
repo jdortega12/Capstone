@@ -1,8 +1,6 @@
 //handler testings
-const mongoose = require("mongoose");
-const studentCRUD = require("../model/studentCRUD.js");
-const handlers = require("./handlers")
 const db = require("../setup/db");
+const handlers = require("./handlers")
 
 beforeAll(async () => {
     await db.setUp();
@@ -16,45 +14,51 @@ beforeAll(async () => {
     await db.dropDatabase();
   });
 
-const mockCreateStudentRequest = jest.fn(() => 
-    new Object({body:{name:"name1", 
-    username: "username1", 
-    password: "password1"}})
-);
+const mockRequest = (sessionData, body) => ({
+    session: {data: sessionData},
+    body
+});
 
-const mockLoginRequest = jest.fn(() =>
-    new Object({body: {username: "username1",
-    password: "password1"}})
-);
-
-const mockResponse = jest.fn(Object({res:{redirect: "/Home"}}));
+const mockResponse = () => {
+    const res = {};
+    res.redirect = jest.fn().mockReturnValue(res)
+    res.status = jest.fn().mockReturnValue(res)
+    return res
+}
 
 describe("Handler Create Student", () => {
     test("should save the student to the db", async () => {
-        let request = mockCreateStudentRequest();
-        var response;
-        handlers.postCreate(request, mockResponse);
-        //console.log(response)
-        //expect(savedStudent.name).toBe(request.name);
-        //expect(savedStudent.username).toBe(request.username);
-        //expect(savedStudent.password).toBe(request.password);
-    })
+        const req = mockRequest(
+            {},
+            {name: "name1", username: "username1", password: "password"}
+        )
+        const res = mockResponse();
+        await handlers.postCreate(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.redirect).toHaveBeenCalledWith("/Home");
+    });
 });
 
-
-/*
-describe("Handler Login Student", () -> {
+describe("Handler Login Student", () => {
     test("should login the student", async () => {
-        let createStudent = mockCreateStudentRequest();
-        let request = mockLoginRequest();
-        let savedStudent = await studentCRUD.createStudent(createStudent);
-
-        let foundStudent = await studentCRUD.login(request.username, request.password);
-        expect(foundStudent.name).toBe(createStudent.name);
-        expect(foundStudent.username).toBe(createStudent.username);
-        expect(foundStudent.password).toBe(createStudent.password);
-        console.log()
-
-    })
+        const req = mockRequest(
+            {},
+            {username: "username1", password: "password"}
+        )
+        const res = mockResponse();
+        await handlers.postLogin(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.redirect).toHaveBeenCalledWith("/Home");
+    });
 });
-*/
+
+describe("Handler Logout Student", () => {
+    test("should logout the student", async () => {
+        const req = mockRequest({username: "username1"})
+        const res = mockResponse();
+        await handlers.postLogout(req, res);
+        expect(req.session.data).toBeNull();
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.redirect).toHaveBeenCalledWith("/Home");
+    });
+});

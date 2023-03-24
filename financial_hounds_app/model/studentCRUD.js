@@ -1,13 +1,13 @@
 const studentModel = require("./student");
 
 async function createStudent(newStudent){
-  console.log("Creating a new student")
+  //console.log("Creating a new student")
   student = new studentModel(newStudent);
-  console.log(student)
+  //console.log(student)
 
   await student.save()
   
-  console.log("Successfully saved!")
+  //console.log("Successfully saved!")
   return student;
 }
 
