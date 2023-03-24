@@ -10,7 +10,7 @@ const Login = () => {
 
     const handleSubmit = async(e) => {
       const loginData = {"username": username, "password": password};
-      alert(JSON.stringify(loginData));
+      //alert(JSON.stringify(loginData));
 
       try{
         await axios({
@@ -26,7 +26,7 @@ const Login = () => {
 
     return (
       <div className="myDiv">
-        <form className="myForm" method='POST'>
+        <form className="myForm">
             <h3 className="myLabelLogin">Login</h3>
             <div className="mb-3">
                 <label className="myLabelLogin">Username</label>
