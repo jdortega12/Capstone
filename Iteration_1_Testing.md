@@ -32,3 +32,13 @@ Tests:       3 passed, 3 total
 Snapshots:   0 total
 Time:        3.729 s
 ## React Snapshot Testing
+----------|---------|----------|---------|---------|-------------------
+File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------|---------|----------|---------|---------|-------------------
+All files |       0 |        0 |       0 |       0 |                   
+----------|---------|----------|---------|---------|-------------------
+
+Test Suites: 4 passed, 4 total
+Tests:       4 passed, 4 total
+Snapshots:   4 passed, 4 total
+Time:        4.145 s
