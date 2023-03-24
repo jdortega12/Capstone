@@ -17,7 +17,20 @@ Testing: N/A
 
 # Iteration 1 Testing
 ## Model Testing
-
+-----------------|---------|----------|---------|---------|-------------------
+File             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------|---------|----------|---------|---------|-------------------
+All files        |     100 |       50 |     100 |     100 |                   
+ model           |     100 |      100 |     100 |     100 |                   
+  student.js     |     100 |      100 |     100 |     100 |                   
+  studentCRUD.js |     100 |      100 |     100 |     100 |                   
+ setup           |     100 |       50 |     100 |     100 |                   
+  db.js          |     100 |       50 |     100 |     100 | 17-25             
+-----------------|---------|----------|---------|---------|-------------------
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        2.292 s
 ## Handler Testing
 -----------------|---------|----------|---------|---------|-------------------
 File             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
