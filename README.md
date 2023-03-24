@@ -13,4 +13,4 @@ https://docs.google.com/document/d/1S_E1Xn3yiMWnNumNgbNkGHgAduJ-ByZe55-OAQItNX0/
 # How to Run
 In one terminal navigate to the server package and execute "node server.js"
 In a seperate terminal navigate to the client package and execute "npm start"
-Testing: N/A
+Testing: In one terminal navigate to the package of the test you want to run and execute "npm run test 'test file name'"
