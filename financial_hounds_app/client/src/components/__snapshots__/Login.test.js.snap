@@ -6,7 +6,6 @@ exports[`Login Snapshot Test 1`] = `
 >
   <form
     className="myForm"
-    method="POST"
   >
     <h3
       className="myLabelLogin"

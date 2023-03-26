@@ -8,7 +8,7 @@ const NavBar = () => {
 
     const handleLogout = async(e) => {
     try{
-      alert("Logout pressed");
+      //alert("Logout pressed");
       await axios.get('/logout');
     } catch(error){
       console.log(error)

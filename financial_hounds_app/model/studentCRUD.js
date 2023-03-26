@@ -13,7 +13,7 @@ async function createStudent(newStudent){
 
 async function login(pusername, pwd){
     const student = await studentModel.findOne({username: pusername, password: pwd});
-    console.log("Student found!")
+    //console.log("Student found!")
     return student;
 }
 
