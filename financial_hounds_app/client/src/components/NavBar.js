@@ -1,15 +1,15 @@
 import { Outlet, Link } from "react-router-dom";
 import {Container, Nav, Navbar} from 'react-bootstrap';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from 'axios';
+import "../styles/NavBar.css";
 
 const NavBar = () => {
 
     const handleLogout = async(e) => {
     try{
       //alert("Logout pressed");
-      await axios.get('/logout');
+      await axios('/logout');
     } catch(error){
       console.log(error)
     }
@@ -27,10 +27,12 @@ const NavBar = () => {
       <Nav className="me-auto">
         <Link to="./About" style={{color: "white", padding: 10, textDecoration: 'none'}}>About</Link>
         <Link to="./CreateAccount" style={{color: "white", padding: 10, textDecoration: 'none'}}>Create Account</Link>
-        <NavDropdown style={{padding: 2, color:"white"}} title="Account" >
-          <NavDropdown.Item href="./Login">Login</NavDropdown.Item>
-            <NavDropdown.Item as="button" onClick={()=> handleLogout()}>Logout</NavDropdown.Item>
-        </NavDropdown>
+        <div className="myNavDiv">
+        <Link to="./Login" style={{color: "white", padding: 10, textDecoration: 'none'}}>Login</Link>
+        <button onClick={()=>handleLogout()} className="myNavButton">
+            Logout
+        </button>
+        </div>
       </Nav>
     </Navbar.Collapse>
   </Container>
@@ -41,3 +43,10 @@ const NavBar = () => {
   };
   
 export default NavBar;
+
+/*
+        <NavDropdown style={{padding: 2, color:"white"}} title="Account" >
+          <NavDropdown.Item href="./Login">Login</NavDropdown.Item>
+            <NavDropdown.Item as="button" onClick={()=> handleLogout()}>Logout</NavDropdown.Item>
+        </NavDropdown>
+*/

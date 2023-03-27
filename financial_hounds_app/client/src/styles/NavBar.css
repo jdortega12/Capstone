@@ -1,0 +1,14 @@
+.myNavDiv{
+    margin: auto; 
+    position: absolute;
+    right: 0px;
+    width: 150px;
+    padding: 7px;
+}
+
+.myNavButton{
+    background-color: transparent;
+    border: 0;
+    color: white;
+    font-size: 15px;
+  }

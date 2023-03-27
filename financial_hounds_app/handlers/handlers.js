@@ -23,7 +23,6 @@ exports.postCreate = function(req,res){
 exports.postLogin = function(req, res){
   pusername = req.body.username;
   pwd = req.body.password;
-  //console.log(pusername, pwd);
 
   let student = studentCRUD.login(pusername, pwd);
   if(student != null){
@@ -39,9 +38,9 @@ exports.postLogin = function(req, res){
 };
 
 //Logout student
-exports.postLogout = function(req, res){
+exports.getLogout = function(req, res){
   console.log("Logout pressed")
   req.session.data = null;
-  console.log("Logged Out")
+  //console.log("Logged Out")
   return res.status(200).redirect("/Home");
 };

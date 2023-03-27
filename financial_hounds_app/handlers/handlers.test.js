@@ -56,7 +56,7 @@ describe("Handler Logout Student", () => {
     test("should logout the student", async () => {
         const req = mockRequest({username: "username1"})
         const res = mockResponse();
-        await handlers.postLogout(req, res);
+        await handlers.getLogout(req, res);
         expect(req.session.data).toBeNull();
         expect(res.status).toHaveBeenCalledWith(200);
         expect(res.redirect).toHaveBeenCalledWith("/Home");
