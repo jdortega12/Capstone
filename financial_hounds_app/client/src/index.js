@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import CreateAccount from "./components/CreateAccount"
 import Login from "./components/Login"
+import GenericPlanner from "./components/GenericPlanner"
 
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/createaccount" element={<CreateAccount />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/about/genericplanner" element={<GenericPlanner />} />
         </Route>
       </Routes>
     </BrowserRouter>
@@ -25,22 +27,3 @@ export default function App() {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
-
-//Potentially Useful for responses from server
-/*
-  /const [data, setData] = React.useState(null);
-
-  React.useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
-  /*
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{!data ? "Loading..." : data}</p>
-      </header>
-    </div>
-  );*/

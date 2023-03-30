@@ -38,23 +38,33 @@
   
   .myButtonAbout{
     margin-left: 80px;
-    margin-top: 70px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     background-color: #282c34;
-    height: 20%;
-    width: 20%;
     color: white;
     text-decoration: none;
     font-size: 20px;
-    padding: 20px;
   }
   
   button:hover {
       background-color: #07090a;
       cursor: pointer;
       transition: 0.3s ease-in;
+    }
+
+    .myLinkAbout {
+      margin-left: 140px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #282c34;
+      height: 20%;
+      width: 20%;
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      padding: 20px;
     }
   
   

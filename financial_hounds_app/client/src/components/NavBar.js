@@ -43,10 +43,3 @@ const NavBar = () => {
   };
   
 export default NavBar;
-
-/*
-        <NavDropdown style={{padding: 2, color:"white"}} title="Account" >
-          <NavDropdown.Item href="./Login">Login</NavDropdown.Item>
-            <NavDropdown.Item as="button" onClick={()=> handleLogout()}>Logout</NavDropdown.Item>
-        </NavDropdown>
-*/
