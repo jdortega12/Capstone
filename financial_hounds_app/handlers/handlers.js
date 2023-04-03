@@ -39,8 +39,7 @@ exports.postLogin = function(req, res){
 
 //Logout student
 exports.getLogout = function(req, res){
-  console.log("Logout pressed")
   req.session.data = null;
-  //console.log("Logged Out")
+  console.log("Logged Out")
   return res.status(200).redirect("/Home");
 };

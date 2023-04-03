@@ -29,13 +29,13 @@ const Login = () => {
         <form className="myForm">
             <h3 className="myLabelLogin">Login</h3>
             <div className="mb-3">
-                <label className="myLabelLogin">Username</label>
+                <label className="myLabelLogin">Email</label>
                 <input
                     type="text"
                     value = {username}
                     onChange = {(e) => setUsername(e.target.value)}
                     className="form-control"
-                    placeholder="Username"
+                    placeholder="Email"
                 />
         </div>
         <div className="mb-3">
@@ -45,7 +45,7 @@ const Login = () => {
                     value = {password}
                     onChange = {(e) => setPassword(e.target.value)}
                     className="form-control"
-                    placeholder="Username"
+                    placeholder="Password"
                 />
         </div>
         <div className="d-grid">

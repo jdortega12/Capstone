@@ -34,3 +34,15 @@ button:hover {
     cursor: pointer;
     transition: 0.3s ease-in;
   }
+
+.paragraphCreateAccount{
+    text-align: center;
+    border: 3px solid;
+    border-color: white;
+    margin-left: 35%;
+    font-size: 20px;
+    font-weight: lighter;
+    color: white;
+    width: 33.3%;
+    margin-top: 16px;
+}
