@@ -9,10 +9,10 @@ const CreateAccount = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = async(e) => {
+    const handleCreate = async(e) => {
       const studentData = {"name": name, "username": username, "password": password};
-      alert(JSON.stringify(studentData));
-  
+      //alert(JSON.stringify(studentData));
+      
       try{
         await axios({
           method: "post",
@@ -62,7 +62,7 @@ const CreateAccount = () => {
           />
         </div>
         <div className="d-grid">
-          <button onClick={()=>handleSubmit()} className="myButton">
+          <button onClick={()=>handleCreate()} className="myButton">
             Submit
           </button>
         </div>

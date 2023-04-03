@@ -18,7 +18,6 @@ const app = express();
 app.use(cors())
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json())
-app.use('/', routesHandler)
 
 app.use(session({
   store: MongoStore.create({
@@ -27,10 +26,16 @@ app.use(session({
   cookie: {
     maxAge: 1000 * 60 * 60 * 24 * 7 * 2 // two weeks
   },
+  name: "data",
   secret:'anystringoftext',
   saveUninitialized: true,
   resave: true,
 }));
+
+
+app.use('/', routesHandler)
+
+
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);

@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Generic Planner Snapshot Test 1`] = `
+<div
+  className="genericPlanner"
+>
+  <div>
+    <h1
+      className="headerGenericPlanner"
+    >
+       Generic Planner 
+    </h1>
+    <p
+      className="paragraphGenericPlanner"
+    >
+      The Generic Planner will break your monthly after-tax income apart using the '50/30/20' budgeting method. The method sets apart 50% of your monthly income for necessities, 30% for wants, and 20% for savings and debt payments.
+    </p>
+    <row>
+      <label
+        className="myLabelGenericPlanner"
+      >
+        Income
+      </label>
+      <input
+        className="myInputGenericPlanner"
+        name="income"
+        onChange={[Function]}
+        placeholder="Enter monthly income"
+        type="text"
+        value=""
+      />
+      <button
+        className="myButtonGenericPlanner"
+        onClick={[Function]}
+      >
+        Compute Budget
+      </button>
+    </row>
+    <div
+      className="myBoxGenericPlanner"
+    >
+      <h1
+        className="myPanelGenericPlanner"
+      >
+        Necessities: $
+        0
+      </h1>
+      <h1
+        className="myPanelGenericPlanner"
+      >
+        Wants: $
+        0
+      </h1>
+      <h1
+        className="myPanelGenericPlanner"
+      >
+        Savings: $
+        0
+      </h1>
+    </div>
+  </div>
+  <div />
+</div>
+`;
