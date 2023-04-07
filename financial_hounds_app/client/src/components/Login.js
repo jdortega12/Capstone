@@ -25,8 +25,8 @@ const Login = () => {
     };
 
     return (
-      <div className="myDiv">
-        <form className="myForm">
+      <div className="myDivLogin">
+        <form className="myFormLogin">
             <h3 className="myLabelLogin">Login</h3>
             <div className="mb-3">
                 <label className="myLabelLogin">Email</label>
@@ -49,7 +49,7 @@ const Login = () => {
                 />
         </div>
         <div className="d-grid">
-          <button onClick={()=>handleLogin()} className="myButton">
+          <button onClick={()=>handleLogin()} className="myButtonLogin">
             Submit
           </button>
         </div>

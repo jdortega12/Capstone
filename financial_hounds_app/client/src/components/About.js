@@ -7,7 +7,7 @@ const About = () => {
     return (
       <>
       <div className="about">
-        <div>
+        <div className="headerDivAbout">
           <h1 className="headerAbout">About Us</h1>
             <p className="paragraphAbout">
             Greyhound Financial Planning aims to allow Loyola Students to plan out their monthly budget 

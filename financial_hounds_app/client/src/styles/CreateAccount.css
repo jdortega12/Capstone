@@ -8,7 +8,8 @@
     align-items: center;
     height: auto;
     max-width: 30%;
-    margin-left: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .myLabel{
@@ -39,7 +40,8 @@ button:hover {
     text-align: center;
     border: 3px solid;
     border-color: white;
-    margin-left: 35%;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 20px;
     font-weight: lighter;
     color: white;

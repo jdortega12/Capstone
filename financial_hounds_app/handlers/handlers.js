@@ -31,7 +31,7 @@ exports.postLogin = function(req, res){
     studentLogin.password = null;
     req.session.data = studentLogin;
     console.log("Logged In")
-    return res.status(200).redirect("/Home");
+    return res.status(200).redirect("/Login/StudentHome");
   }else{
     return res.status(500).redirect("/Home");
   }

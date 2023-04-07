@@ -6,6 +6,7 @@ import About from "./components/About";
 import CreateAccount from "./components/CreateAccount"
 import Login from "./components/Login"
 import GenericPlanner from "./components/GenericPlanner"
+import StudentHome from "./components/StudentHome"
 
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/createaccount" element={<CreateAccount />} />
           <Route path="/login" element={<Login />} />
           <Route path="/about/genericplanner" element={<GenericPlanner />} />
+          <Route path="/login/studenthome" element={<StudentHome />} />
         </Route>
       </Routes>
     </BrowserRouter>
