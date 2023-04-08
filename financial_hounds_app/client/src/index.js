@@ -20,7 +20,7 @@ export default function App() {
           <Route path="/createaccount" element={<CreateAccount />} />
           <Route path="/login" element={<Login />} />
           <Route path="/about/genericplanner" element={<GenericPlanner />} />
-          <Route path="/login/studenthome" element={<StudentHome />} />
+          <Route path="/studenthome" element={<StudentHome />} />
         </Route>
       </Routes>
     </BrowserRouter>
