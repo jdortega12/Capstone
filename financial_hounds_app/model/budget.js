@@ -6,22 +6,6 @@ const BudgetSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
-    
-    take_home_pay: {
-        type: Number,
-      },
-
-    total_fixed_expenses: {
-        type: Number,
-    },
-
-    total_variable_expenses: {
-        type: Number,
-    },
-
-    total_expenses: {
-        type: Number,
-    },
 
     disposable_income: {
         type: Number,
