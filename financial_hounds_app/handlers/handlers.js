@@ -33,7 +33,7 @@ exports.postLogin = function(req, res){
     studentLogin.password = null;
     req.session.data = studentLogin;
     console.log("Logged In")
-    return res.status(200).redirect("/StudentHome");
+    return res.status(200).redirect("/Login");
   }else{
     return res.status(500).redirect("/Login");
   }
@@ -51,26 +51,26 @@ exports.postCreateBudget = function(req, res){
   let newBudget = {};
   newBudget.username = req.body.username;
   newBudget.disposable_income = req.body.disposable_income;
+  newBudget.total_expenses = req.body.total_expenses;
 
   try{
     savedBudget = budgetCRUD.createBudget(newBudget);
     console.log("Budget Created")
-    return res.status(200);
+    return res.status(200).redirect("/StudentHome");
   } catch (error) {
     return res.status(500);
   }
 }
 
+/*
+//Get budget based on username of student
 exports.getBudget = function(req, res){
   let busername = req.body.username;
   let budget = budgetCRUD.getBudget(busername);
   if(budget != null){
-    res.status(200);
-    res.write(budget);
-    res.end();
-
+    return res.status(200);
   }else{
-    res.status(404)
-    return res.send({msg: 'User not found'});
+    return res.status(404);
   }
 }
+*/

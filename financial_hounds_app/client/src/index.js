@@ -7,7 +7,7 @@ import CreateAccount from "./components/CreateAccount"
 import Login from "./components/Login"
 import GenericPlanner from "./components/GenericPlanner"
 import StudentHome from "./components/StudentHome"
-import Budget from "./components/Budget"
+import CreateBudget from "./components/CreateBudget"
 
 
 export default function App() {
@@ -22,7 +22,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/about/genericplanner" element={<GenericPlanner />} />
           <Route path="/studenthome" element={<StudentHome />} />
-          <Route path="/studenthome/budget" element={<Budget />} />
+          <Route path="/createbudget" element={<CreateBudget />} />
         </Route>
       </Routes>
     </BrowserRouter>

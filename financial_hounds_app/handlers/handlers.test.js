@@ -48,7 +48,7 @@ describe("Handler Login Student", () => {
         const res = mockResponse();
         await handlers.postLogin(req, res);
         expect(res.status).toHaveBeenCalledWith(200);
-        //expect(res.redirect).toHaveBeenCalledWith("/Home");
+        expect(res.redirect).toHaveBeenCalledWith("/Login");
     });
 });
 
@@ -59,7 +59,7 @@ describe("Handler Logout Student", () => {
         await handlers.getLogout(req, res);
         expect(req.session.data).toBeNull();
         expect(res.status).toHaveBeenCalledWith(200);
-        //expect(res.redirect).toHaveBeenCalledWith("/Home");
+        expect(res.redirect).toHaveBeenCalledWith("/Home");
     });
 });
 
@@ -67,14 +67,15 @@ describe("Handler Create Budget", () => {
     test("should save the budget to the db", async () => {
         const req = mockRequest(
             {},
-            {username: "username1", disposable_income: 1000}
+            {username: "username1", disposable_income: 1000, total_expenses: 200}
         )
         const res = mockResponse();
         await handlers.postCreateBudget(req, res);
         expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.redirect).toHaveBeenCalledWith("/StudentHome");
     });
 });
-
+/*
 describe("Handler Get Budget", () => {
     test("should get the budget from the db", async () => {
         const req = mockRequest(
@@ -84,6 +85,5 @@ describe("Handler Get Budget", () => {
         const res = mockResponse();
         await handlers.getBudget(req, res);
         expect(res.status).toHaveBeenCalledWith(200);
-        expect(res.write).toBeDefined();
     });
-});
+});*/

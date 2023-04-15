@@ -1,0 +1,80 @@
+.createBudget {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: #0d4b34;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  }
+
+.headerCreateBudget {
+    font-size: 75px;
+    font-weight: 50;
+    color: white;
+    margin-left: 25px;
+    text-align: center;
+  }
+
+.paragraphCreateBudget {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 3px solid;
+    border-color: white;
+    font-size: 20px;
+    font-weight: lighter;
+    color: white;
+    width: 40%;
+    margin-top: 25px;
+    margin-bottom: 5%;
+}
+
+.myLabelCreateBudget{
+    color: white;
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+.myInputCreateBudget{
+    flex: 1;
+    font-size: 20px;
+    display: block;
+}
+
+.myInputDiv{
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    max-width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.myBoxCreateBudget{
+    padding: 20px;
+    display: flex;
+  }
+  
+.myPanelCreateBudget{
+    flex: 1;
+    color: white;
+    text-align: center;
+    border: 3px solid;
+    border-color: white;
+  }
+
+  .myButtonCreateBudget{
+    margin-left: 43%;
+    margin-top: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #282c34;
+    height: 10%;
+    width: 18%;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px;
+  }
+
+

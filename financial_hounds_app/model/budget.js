@@ -9,6 +9,10 @@ const BudgetSchema = new mongoose.Schema({
 
     disposable_income: {
         type: Number,
+    },
+
+    total_expenses: {
+        type: Number,
     }
 });
 

@@ -6,6 +6,7 @@ const db = require("../setup/db");
 const budgetData = {
   username: "test1",
   disposable_income: 1000,
+  total_expenses: 200,
 };
 
 beforeAll(async () => {
@@ -30,6 +31,7 @@ afterAll(async () => {
       expect(savedBudget._id).toBeDefined();
       expect(savedBudget.username).toBe(budgetData.username);
       expect(savedBudget.disposable_income).toBe(budgetData.disposable_income);
+      expect(savedBudget.total_expenses).toBe(budgetData.total_expenses);
     });
 
     it("get budget", async () => {
@@ -39,5 +41,6 @@ afterAll(async () => {
       const foundBudget = await budgetCRUD.getBudget(savedBudget.username);
       expect(foundBudget.username).toBe(budgetData.username);
       expect(foundBudget.disposable_income).toBe(budgetData.disposable_income);
+      expect(foundBudget.total_expenses).toBe(budgetData.total_expenses);
     });
 });

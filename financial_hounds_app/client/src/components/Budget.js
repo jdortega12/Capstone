@@ -15,7 +15,7 @@ const Budget = () => {
             </p>
             <row>
             <Nav className="me-auto">
-               <Link className="myLinkBudget"> Create Budget </Link>
+               <Link className="myLinkBudget" to="/CreateBudget"> Create Budget </Link>
                <Link className="myLinkBudget"> View Budget </Link>
             </Nav>
             </row>
