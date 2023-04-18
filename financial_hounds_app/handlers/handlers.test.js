@@ -48,7 +48,7 @@ describe("Handler Login Student", () => {
         const res = mockResponse();
         await handlers.postLogin(req, res);
         expect(res.status).toHaveBeenCalledWith(200);
-        expect(res.redirect).toHaveBeenCalledWith("/Login");
+        expect(res.redirect).toHaveBeenCalledWith("/Home");
     });
 });
 

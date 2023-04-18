@@ -5,61 +5,70 @@ import axios from 'axios';
 
 const CreateBudget = () => {
 
-    const [income, setIncome] = useState("");
-    const [fixedExpenses, setFixedExpenses] = useState("");
-    const [variableExpenses, setVariableExpenses] = useState("");
+    const [inputs, setInputs] = useState({
+      income: "",
+      fixedExpenses: "",
+      variableExpenses: ""
+    });
+    //const [fixedExpenses, setFixedExpenses] = useState("");
+    //const [variableExpenses, setVariableExpenses] = useState("");
+
+    const updateInputs = (e) => {
+      const newInput = e.target.value;
+      setInputs({
+        ...inputs,
+        [e.target.name]: newInput
+      });
+    };
 
     let [calculations, setCalculations] = useState({
       takeHomePay: 0,
       annualTotalExpenses: 0,
       monthlyTotalExpenses: 0,
-      annualDisposibleIncome: 0,
-      monthlyDisposibleIncome: 0,
+      annualDisposableIncome: 0,
+      monthlyDisposableIncome: 0,
     });
-  
-    const computeBudget = () => {
-      var strippedIncome = income.replace(/,/g,'');
+
+    const computeBudget = async() => {
+      alert('Creating Your Budget!')
+      var strippedIncome = inputs.income.replace(/,/g,'');
       const userIncome = Number(strippedIncome);
 
-      var strippedFixedExpenses = fixedExpenses.replace(/,/g,'');
+      var strippedFixedExpenses = inputs.fixedExpenses.replace(/,/g,'');
       const userFixedExpenses = Number(strippedFixedExpenses);
 
-      var strippedVariableExpenses = variableExpenses.replace(/,/g,'');
+      var strippedVariableExpenses = inputs.variableExpenses.replace(/,/g,'');
       const userVariableExpenses = Number(strippedVariableExpenses);
 
       const calculatedTakeHomePay = userIncome - ((userIncome * 0.15) + (userIncome * 0.06) + (userIncome * 0.0325) + (userIncome * 0.025));
       const calculatedAnnualTotalExpenses = userFixedExpenses + userVariableExpenses;
       const calculatedMonthlyTotalExpenses = calculatedAnnualTotalExpenses/12;
-      const calculatedAnnualDisposibleIncome = calculatedTakeHomePay - calculatedAnnualTotalExpenses;
-      const calculatedMonthlyDisposibleIncome = calculatedAnnualDisposibleIncome/12;
+      const calculatedAnnualDisposableIncome = calculatedTakeHomePay - calculatedAnnualTotalExpenses;
+      const calculatedMonthlyDisposableIncome = calculatedAnnualDisposableIncome/12;
   
       setCalculations({
         takeHomePay: Math.round(calculatedTakeHomePay),
         annualTotalExpenses: Math.round(calculatedAnnualTotalExpenses),
         monthlyTotalExpenses: Math.round(calculatedMonthlyTotalExpenses),
-        annualDisposibleIncome: Math.round(calculatedAnnualDisposibleIncome),
-        monthlyDisposibleIncome: Math.round(calculatedMonthlyDisposibleIncome),
+        annualDisposableIncome: Math.round(calculatedAnnualDisposableIncome),
+        monthlyDisposableIncome: Math.round(calculatedMonthlyDisposableIncome),
       }); 
 
-      handleCreate(calculations);
-    };
+      //Send budget data to backend
+      const budgetData = {"disposable_income": String(calculations.annualDisposableIncome), "total_expenses": String(calculations.annualTotalExpenses)};
 
-    const handleCreate = async(e) => {
-        const budgetData = {"name": name, "username": username, "password": password};
-        alert(JSON.stringify(budgetData));
-        
-        /*
-        try{
-          await axios({
-            method: "post",
-            url: "/createaccount",
-            data: studentData,
-          });
-        } catch(error){
-          console.log(error)
-        }*/
+      try{
+        await axios({
+          method: "post",
+          url: "/createbudget",
+          data: budgetData,
+        });
+      } catch(error){
+        console.log(error)
+      }
+      
+    };
           
-      };
 
     return (
       <div className="createBudget">
@@ -72,30 +81,30 @@ const CreateBudget = () => {
             disposible income. This number will be displayed as yearly and monthly.
           </p>
         <div className="myBoxCreateBudget">
-            <label className="myLabelCreateBudget">Gross annual income</label>
+            <label className="myLabelCreateBudget">Gross annual income: </label>
             <input
             className="myInputCreateBudget"
             name="income"
-            value = {income}
-            onChange = {(e) => setIncome(e.target.value)}
+            value = {inputs.income}
+            onChange = {updateInputs}
             type="text" 
             placeholder="Gross annual income" />
 
-            <label className="myLabelCreateBudget">Fixed expenses</label>
+            <label className="myLabelCreateBudget">Fixed expenses: </label>
             <input
             className="myInputCreateBudget"
             name="fixedExpenses"
-            value = {fixedExpenses}
-            onChange = {(e) => setFixedExpenses(e.target.value)}
+            value = {inputs.fixedExpenses}
+            onChange = {updateInputs}
             type="text" 
             placeholder="Fixed expenses" />
 
-            <label className="myLabelCreateBudget">Variable expenses</label>
+            <label className="myLabelCreateBudget">Variable expenses: </label>
             <input
             className="myInputCreateBudget"
             name="variableExpenses"
-            value = {variableExpenses}
-            onChange = {(e) => setVariableExpenses(e.target.value)}
+            value = {inputs.variableExpenses}
+            onChange = {updateInputs}
             type="text" 
             placeholder="Variable expenses" />
         </div>
@@ -107,8 +116,8 @@ const CreateBudget = () => {
             <h1 className="myPanelCreateBudget">Take-Home Pay: ${calculations.takeHomePay}</h1>
             <h1 className="myPanelCreateBudget">Annual Total Expenses: ${calculations.annualTotalExpenses}</h1>
             <h1 className="myPanelCreateBudget">Monthly Total Expenses: ${calculations.monthlyTotalExpenses}</h1>
-            <h1 className="myPanelCreateBudget">Annual Disposible Income: ${calculations.annualDisposibleIncome}</h1>
-            <h1 className="myPanelCreateBudget">Monthly Disposible Income: ${calculations.monthlyDisposibleIncome}</h1>
+            <h1 className="myPanelCreateBudget">Annual Disposable Income: ${calculations.annualDisposableIncome}</h1>
+            <h1 className="myPanelCreateBudget">Monthly Disposable Income: ${calculations.monthlyDisposableIncome}</h1>
         </div>
       </div>
       </div>

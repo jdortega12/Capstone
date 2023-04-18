@@ -23,17 +23,16 @@ exports.postCreate = function(req,res){
 
 //Login student
 exports.postLogin = function(req, res){
+  console.log("I'm running")
   pusername = req.body.username;
   pwd = req.body.password;
 
   let student = studentCRUD.login(pusername, pwd);
   if(student != null){
-    studentLogin = {}
-    studentLogin.username = pusername;
-    studentLogin.password = null;
-    req.session.data = studentLogin;
+    req.session.data = pusername;
     console.log("Logged In")
-    return res.status(200).redirect("/Login");
+    console.log("DATA:", req.session.data)
+    return res.status(200).redirect("/Home");
   }else{
     return res.status(500).redirect("/Login");
   }
@@ -42,16 +41,26 @@ exports.postLogin = function(req, res){
 //Logout student
 exports.getLogout = function(req, res){
   req.session.data = null;
-  console.log("Logged Out")
+  console.log("Logged Out");
+  console.log("DATA:", req.session.data);
   return res.status(200).redirect("/Home");
 };
 
 //Create budget
 exports.postCreateBudget = function(req, res){
+  disposable_income = req.body.disposable_income;
+  total_expenses = req.body.total_expenses
+  console.log(disposable_income);
+  console.log(total_expenses);
+  if(disposable_income === 0 || total_expenses === 0)
+  {
+    return res.status(500);
+  }
+  
   let newBudget = {};
-  newBudget.username = req.body.username;
-  newBudget.disposable_income = req.body.disposable_income;
-  newBudget.total_expenses = req.body.total_expenses;
+  newBudget.username = req.session.data;
+  newBudget.disposable_income = Number(req.body.disposable_income);
+  newBudget.total_expenses = Number(req.body.total_expenses);
 
   try{
     savedBudget = budgetCRUD.createBudget(newBudget);

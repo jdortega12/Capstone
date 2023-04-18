@@ -11,7 +11,7 @@ const CreateAccount = () => {
 
     const handleCreate = async(e) => {
       const studentData = {"name": name, "username": username, "password": password};
-      //alert(JSON.stringify(studentData));
+      alert("Creating your account!");
       
       try{
         await axios({
