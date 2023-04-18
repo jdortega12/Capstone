@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/CreateBudget.css";
-import { useState } from 'react';
+import { useState} from 'react';
 import axios from 'axios';
 
 const CreateBudget = () => {
@@ -20,6 +20,7 @@ const CreateBudget = () => {
         [e.target.name]: newInput
       });
     };
+    
 
     let [calculations, setCalculations] = useState({
       takeHomePay: 0,

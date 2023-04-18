@@ -3,7 +3,23 @@ import "../styles/CreateBudget.css";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const API_URL = '/viewbudget';
+
 const ViewBudget = () => {
+
+  const [data, setData] = useState([]);
+
+  const fetchData = async() => {
+    const {budgetData} = await axios.get(API_URL, {responseType: "json"});
+    setData(data);
+    alert(JSON.stringify(budgetData));
+  };
+
+  useEffect(() => {
+    fetchData();
+  });
+
+
     return (
       <div className="createBudget">
         <div className="myBoxCreateBudget">
