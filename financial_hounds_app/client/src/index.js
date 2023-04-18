@@ -8,6 +8,7 @@ import Login from "./components/Login"
 import GenericPlanner from "./components/GenericPlanner"
 import StudentHome from "./components/StudentHome"
 import CreateBudget from "./components/CreateBudget"
+import ViewBudget from "./components/ViewBudget"
 
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="/about/genericplanner" element={<GenericPlanner />} />
           <Route path="/studenthome" element={<StudentHome />} />
           <Route path="/createbudget" element={<CreateBudget />} />
+          <Route path="/viewbudget" element={<ViewBudget />} />
         </Route>
       </Routes>
     </BrowserRouter>

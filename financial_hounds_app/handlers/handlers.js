@@ -49,13 +49,9 @@ exports.getLogout = function(req, res){
 //Create budget
 exports.postCreateBudget = function(req, res){
   disposable_income = req.body.disposable_income;
-  total_expenses = req.body.total_expenses
-  console.log(disposable_income);
-  console.log(total_expenses);
-  if(disposable_income === 0 || total_expenses === 0)
-  {
-    return res.status(500);
-  }
+  total_expenses = req.body.total_expenses;
+
+  //If budget already exists under this name => delete and create a new one
   
   let newBudget = {};
   newBudget.username = req.session.data;
