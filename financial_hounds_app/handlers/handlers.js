@@ -52,12 +52,14 @@ exports.postCreateBudget = function(req, res){
   total_expenses = req.body.total_expenses;
 
   //If budget already exists under this name => delete and create a new one
+  if(budgetCRUD.getBudget(req.session.data) !== null){
+    deleted = budgetCRUD.deleteBudget(req.session.data);
+  }
   
   let newBudget = {};
   newBudget.username = req.session.data;
   newBudget.disposable_income = Number(req.body.disposable_income);
   newBudget.total_expenses = Number(req.body.total_expenses);
-
   try{
     savedBudget = budgetCRUD.createBudget(newBudget);
     console.log("Budget Created")

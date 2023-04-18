@@ -66,8 +66,8 @@ describe("Handler Logout Student", () => {
 describe("Handler Create Budget", () => {
     test("should save the budget to the db", async () => {
         const req = mockRequest(
-            {},
-            {username: "username1", disposable_income: 1000, total_expenses: 200}
+            "username1",
+            {disposable_income: 1000, total_expenses: 200}
         )
         const res = mockResponse();
         await handlers.postCreateBudget(req, res);

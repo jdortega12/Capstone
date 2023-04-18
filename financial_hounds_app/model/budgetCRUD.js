@@ -11,4 +11,9 @@ async function getBudget(busername){
   return budget;
 }
 
-module.exports = {createBudget, getBudget}
+async function deleteBudget(busername){
+  const budget = await budgetModel.findOneAndDelete({username: busername});
+  return budget;
+}
+
+module.exports = {createBudget, getBudget, deleteBudget}

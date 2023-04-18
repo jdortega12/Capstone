@@ -43,4 +43,17 @@ afterAll(async () => {
       expect(foundBudget.disposable_income).toBe(budgetData.disposable_income);
       expect(foundBudget.total_expenses).toBe(budgetData.total_expenses);
     });
+
+    it("delete budget", async () => {
+      const validBudget = new budgetModel(budgetData);
+      const savedBudget = await budgetCRUD.createBudget(validBudget);
+  
+      const deletedBudget = await budgetCRUD.deleteBudget(savedBudget.username);
+      expect(deletedBudget.username).toBe(budgetData.username);
+      expect(deletedBudget.disposable_income).toBe(budgetData.disposable_income);
+      expect(deletedBudget.total_expenses).toBe(budgetData.total_expenses);
+
+      const tryToFind = await budgetCRUD.getBudget(savedBudget.username);
+      expect(tryToFind).toBeNull();
+    });
 });
