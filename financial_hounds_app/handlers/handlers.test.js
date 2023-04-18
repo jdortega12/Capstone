@@ -21,9 +21,10 @@ const mockRequest = (sessionData, body) => ({
 
 const mockResponse = () => {
     const res = {};
-    res.redirect = jest.fn().mockReturnValue(res)
-    res.status = jest.fn().mockReturnValue(res)
-    return res
+    res.redirect = jest.fn().mockReturnValue(res);
+    res.status = jest.fn().mockReturnValue(res);
+    res.json = jest.fn().mockReturnValue(res);
+    return res;
 }
 
 describe("Handler Create Student", () => {
@@ -75,15 +76,16 @@ describe("Handler Create Budget", () => {
         expect(res.redirect).toHaveBeenCalledWith("/StudentHome");
     });
 });
-/*
+
 describe("Handler Get Budget", () => {
     test("should get the budget from the db", async () => {
         const req = mockRequest(
-            {},
-            {username: "username1"}
+            "username1",
+            {}
         )
         const res = mockResponse();
         await handlers.getBudget(req, res);
         expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.json).toBeDefined();
     });
-});*/
+});

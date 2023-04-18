@@ -23,7 +23,6 @@ exports.postCreate = function(req,res){
 
 //Login student
 exports.postLogin = function(req, res){
-  console.log("I'm running")
   pusername = req.body.username;
   pwd = req.body.password;
 
@@ -69,15 +68,19 @@ exports.postCreateBudget = function(req, res){
   }
 }
 
-/*
+
 //Get budget based on username of student
-exports.getBudget = function(req, res){
-  let busername = req.body.username;
-  let budget = budgetCRUD.getBudget(busername);
+exports.getBudget = async function(req, res){
+  let busername = req.session.data;
+  console.log("Username", busername);
+  let budget = await budgetCRUD.getBudget(busername);
+  console.log(budget)
   if(budget != null){
-    return res.status(200);
+    return res.status(200).json({
+      disposable_income: budget.disposable_income,
+      total_expenses: budget.total_expenses
+    });
   }else{
     return res.status(404);
   }
 }
-*/
