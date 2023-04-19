@@ -20,28 +20,28 @@ const ViewBudget = () => {
 
   const fetchData = async() => {
     const budgetData = await axios.get(API_URL, {responseType: "json"});
-    setDisposable(Number(budgetData.data.disposable_income));
-    setExpenses(Number(budgetData.data.total_expenses));
 
-    const calculatedTakeHomePay = disposable_income+total_expenses;
-    const calculatedAnnualTotalExpenses = total_expenses;
-    const calculatedMonthlyTotalExpenses = total_expenses/12;
-    const calculatedAnnualDisposableIncome = disposable_income;
-    const calculatedMonthlyDisposableIncome = disposable_income/12;
+    let disposable_income = Number(budgetData.data.disposable_income);
+    let total_expenses = Number(budgetData.data.total_expenses);
+
+    const calculatedTakeHomePay = Math.round(disposable_income+total_expenses);
+    const calculatedAnnualTotalExpenses = Math.round(total_expenses);
+    const calculatedMonthlyTotalExpenses = Math.round(total_expenses/12);
+    const calculatedAnnualDisposableIncome = Math.round(disposable_income);
+    const calculatedMonthlyDisposableIncome = Math.round(disposable_income/12);
 
     setCalculations({
-      takeHomePay: Math.round(calculatedTakeHomePay),
-      annualTotalExpenses: Math.round(calculatedAnnualTotalExpenses),
-      monthlyTotalExpenses: Math.round(calculatedMonthlyTotalExpenses),
-      annualDisposableIncome: Math.round(calculatedAnnualDisposableIncome),
-      monthlyDisposableIncome: Math.round(calculatedMonthlyDisposableIncome),
-    }); 
+      takeHomePay: calculatedTakeHomePay,
+      annualTotalExpenses: calculatedAnnualTotalExpenses,
+      monthlyTotalExpenses: calculatedMonthlyTotalExpenses,
+      annualDisposableIncome: calculatedAnnualDisposableIncome,
+      monthlyDisposableIncome: calculatedMonthlyDisposableIncome,
+    });
   };
 
   useEffect(() => {
-    fetchData();
+      fetchData();
   }, []);
-
 
     return (
       <div className="createBudget">
@@ -69,13 +69,6 @@ const ViewBudget = () => {
       </div>
     </div>
     );
-  }
+  };
   
 export default ViewBudget;
-
-/*
-<h1 className="myPanelCreateBudget">Take-Home Pay: ${calculations.takeHomePay}</h1>
-<h1 className="myPanelCreateBudget">Annual Total Expenses: ${calculations.annualTotalExpenses}</h1>
-<h1 className="myPanelCreateBudget">Monthly Total Expenses: ${calculations.monthlyTotalExpenses}</h1>
-<h1 className="myPanelCreateBudget">Annual Disposable Income: ${calculations.annualDisposableIncome}</h1>
-<h1 className="myPanelCreateBudget">Monthly Disposable Income: ${calculations.monthlyDisposableIncome}</h1>*/

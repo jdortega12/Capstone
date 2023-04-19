@@ -69,6 +69,12 @@
     border-color: white;
   }
 
+  .myBoxViewEmergency{
+    flex: 1;
+    padding: 20px;
+    display: flex;
+  }
+
   .myButtonCreateBudget{
     margin-left: 43%;
     margin-top: 30px;

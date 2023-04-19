@@ -10,7 +10,7 @@ const Login = () => {
 
     const handleLogin = async(e) => {
       const loginData = {"username": username, "password": password};
-      //alert(JSON.stringify(loginData));
+      alert("Logging you in!");
       
       try{
         await axios({
