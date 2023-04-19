@@ -50,17 +50,19 @@ exports.getLogout = function(req, res){
 //Create budget
 exports.postCreateBudget = function(req, res){
   //If budget already exists under this name => delete and create a new one
+
   if(budgetCRUD.getBudget(req.session.data) !== null){
+    console.log("DELETING PREVIOUS BUDGET");
     deleted = budgetCRUD.deleteBudget(req.session.data);
   }
-  
+
   let newBudget = {};
   newBudget.username = req.session.data;
   newBudget.disposable_income = Number(req.body.disposable_income);
   newBudget.total_expenses = Number(req.body.total_expenses);
   try{
     savedBudget = budgetCRUD.createBudget(newBudget);
-    console.log("Budget Created")
+    console.log("Budget Created");
     return res.status(200).redirect("/StudentHome");
   } catch (error) {
     return res.status(500);
@@ -86,6 +88,8 @@ exports.getBudget = async function(req, res){
 //Create Emergency
 exports.postCreateEmergency = function(req, res){
   //If emergency already exists under this name => delete and create a new one
+
+  
   if(emergencyCRUD.getEmergency(req.session.data) !== null){
     deleted = emergencyCRUD.deleteEmergency(req.session.data);
   }
