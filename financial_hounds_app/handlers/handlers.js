@@ -75,9 +75,8 @@ exports.getBudget = async function(req, res){
   let busername = req.session.data;
   console.log("Username", busername);
   let budget = await budgetCRUD.getBudget(busername);
-  console.log(budget)
   if(budget != null){
-    return res.status(200).send(emergency);
+    return res.status(200).json({disposable_income: budget.disposable_income, total_expenses: budget.total_expenses});
   }else{
     return res.status(404);
   }
@@ -88,8 +87,6 @@ exports.getBudget = async function(req, res){
 //Create Emergency
 exports.postCreateEmergency = function(req, res){
   //If emergency already exists under this name => delete and create a new one
-
-  
   if(emergencyCRUD.getEmergency(req.session.data) !== null){
     deleted = emergencyCRUD.deleteEmergency(req.session.data);
   }

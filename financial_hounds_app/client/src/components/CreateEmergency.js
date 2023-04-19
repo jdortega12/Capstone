@@ -22,12 +22,6 @@ const CreateEmergency = () => {
         [e.target.name]: newInput
       });
     };
-    
-
-    let [calculations, setCalculations] = useState({
-      monthlyTotalExpenses: 0,
-      sixMonthAmount: 0,
-    });
 
     const computeEmergency = async() => {
       alert('Creating Your Emergency Fund!')
@@ -51,15 +45,10 @@ const CreateEmergency = () => {
 
       const calculatedMonthlyTotalExpenses = userRent + userUtilities + userTelecom + userInsurance + userTransportation + userGroceries;
       const calculatedSixMonthAmount = calculatedMonthlyTotalExpenses * 6;
-  
-      setCalculations({
-        monthlyTotalExpenses: Math.round(calculatedMonthlyTotalExpenses),
-        sixMonthAmount: Math.round(calculatedSixMonthAmount),
-      }); 
 
       //Send budget data to backend
-      const emergencyData = {"total_expenses": String(calculations.monthlyTotalExpenses), 
-        "six_month_amount": String(calculations.sixMonthAmount)};
+      const emergencyData = {"total_expenses": String(Math.round(calculatedMonthlyTotalExpenses)), 
+        "six_month_amount": String(Math.round(calculatedSixMonthAmount))};
 
       try{
         await axios({

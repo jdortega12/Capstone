@@ -10,9 +10,11 @@ const CreateBudget = () => {
       fixedExpenses: "",
       variableExpenses: ""
     });
+    //const [income, setIncome] = useState("");
     //const [fixedExpenses, setFixedExpenses] = useState("");
     //const [variableExpenses, setVariableExpenses] = useState("");
 
+    
     const updateInputs = (e) => {
       const newInput = e.target.value;
       setInputs({
@@ -20,15 +22,6 @@ const CreateBudget = () => {
         [e.target.name]: newInput
       });
     };
-    
-
-    let [calculations, setCalculations] = useState({
-      takeHomePay: 0,
-      annualTotalExpenses: 0,
-      monthlyTotalExpenses: 0,
-      annualDisposableIncome: 0,
-      monthlyDisposableIncome: 0,
-    });
 
     const computeBudget = async() => {
       alert('Creating Your Budget!')
@@ -43,20 +36,10 @@ const CreateBudget = () => {
 
       const calculatedTakeHomePay = userIncome - ((userIncome * 0.15) + (userIncome * 0.06) + (userIncome * 0.0325) + (userIncome * 0.025));
       const calculatedAnnualTotalExpenses = userFixedExpenses + userVariableExpenses;
-      const calculatedMonthlyTotalExpenses = calculatedAnnualTotalExpenses/12;
       const calculatedAnnualDisposableIncome = calculatedTakeHomePay - calculatedAnnualTotalExpenses;
-      const calculatedMonthlyDisposableIncome = calculatedAnnualDisposableIncome/12;
-  
-      setCalculations({
-        takeHomePay: Math.round(calculatedTakeHomePay),
-        annualTotalExpenses: Math.round(calculatedAnnualTotalExpenses),
-        monthlyTotalExpenses: Math.round(calculatedMonthlyTotalExpenses),
-        annualDisposableIncome: Math.round(calculatedAnnualDisposableIncome),
-        monthlyDisposableIncome: Math.round(calculatedMonthlyDisposableIncome),
-      }); 
 
       //Send budget data to backend
-      const budgetData = {"disposable_income": String(calculations.annualDisposableIncome), "total_expenses": String(calculations.annualTotalExpenses)};
+      const budgetData = {"disposable_income": String(Math.round(calculatedAnnualDisposableIncome)), "total_expenses": String(Math.round(calculatedAnnualTotalExpenses))};
 
       try{
         await axios({
@@ -110,17 +93,9 @@ const CreateBudget = () => {
             type="text" 
             placeholder="Variable expenses" />
         </div>
-
         <button onClick={()=> computeBudget()}  className="myButtonCreateBudget">
             Compute Budget
         </button>
-        <div className="myBoxCreateBudget">
-            <h1 className="myPanelCreateBudget">Take-Home Pay: ${calculations.takeHomePay}</h1>
-            <h1 className="myPanelCreateBudget">Annual Total Expenses: ${calculations.annualTotalExpenses}</h1>
-            <h1 className="myPanelCreateBudget">Monthly Total Expenses: ${calculations.monthlyTotalExpenses}</h1>
-            <h1 className="myPanelCreateBudget">Annual Disposable Income: ${calculations.annualDisposableIncome}</h1>
-            <h1 className="myPanelCreateBudget">Monthly Disposable Income: ${calculations.monthlyDisposableIncome}</h1>
-        </div>
       </div>
       </div>
     );
