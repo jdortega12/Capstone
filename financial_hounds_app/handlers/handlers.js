@@ -3,6 +3,8 @@ const studentModel = require("../model/student");
 const studentCRUD = require("../model/studentCRUD");
 const budgetModel = require("../model/budget");
 const budgetCRUD = require("../model/budgetCRUD");
+const emergencyModel = require("../model/emergency");
+const emergencyCRUD = require("../model/emergencyCRUD");
 const app = express();
 
 //Student create
@@ -47,9 +49,6 @@ exports.getLogout = function(req, res){
 
 //Create budget
 exports.postCreateBudget = function(req, res){
-  disposable_income = req.body.disposable_income;
-  total_expenses = req.body.total_expenses;
-
   //If budget already exists under this name => delete and create a new one
   if(budgetCRUD.getBudget(req.session.data) !== null){
     deleted = budgetCRUD.deleteBudget(req.session.data);
@@ -76,10 +75,42 @@ exports.getBudget = async function(req, res){
   let budget = await budgetCRUD.getBudget(busername);
   console.log(budget)
   if(budget != null){
-    return res.status(200).json({
-      disposable_income: budget.disposable_income,
-      total_expenses: budget.total_expenses
-    });
+    return res.status(200).send(emergency);
+  }else{
+    return res.status(404);
+  }
+}
+
+//Emergency Fund 
+
+//Create Emergency
+exports.postCreateEmergency = function(req, res){
+  //If emergency already exists under this name => delete and create a new one
+  if(emergencyCRUD.getEmergency(req.session.data) !== null){
+    deleted = emergencyCRUD.deleteEmergency(req.session.data);
+  }
+  
+  let newEmergency = {};
+  newEmergency.username = req.session.data;
+  newEmergency.total_expenses = Number(req.body.total_expenses);
+  newEmergency.six_month_amount = Number(req.body.six_month_amount);
+  try{
+    savedEmergency = emergencyCRUD.createEmergency(newEmergency);
+    console.log("Emergency Fund Created");
+    return res.status(200).redirect("/StudentHome");
+  } catch (error) {
+    return res.status(500);
+  }
+}
+
+//Get emergency based on username of student
+exports.getEmergency = async function(req, res){
+  let busername = req.session.data;
+  console.log("Username", busername);
+  let emergency = await emergencyCRUD.getEmergency(busername);
+  console.log(emergency)
+  if(emergency != null){
+    return res.status(200).send(emergency);
   }else{
     return res.status(404);
   }

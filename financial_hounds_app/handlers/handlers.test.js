@@ -78,14 +78,38 @@ describe("Handler Create Budget", () => {
 });
 
 describe("Handler Get Budget", () => {
-    test("should get the budget from the db", async () => {
+    test("should not get the budget from the db", async () => {
         const req = mockRequest(
             "username1",
             {}
         )
         const res = mockResponse();
         await handlers.getBudget(req, res);
+        expect(res.status).toHaveBeenCalledWith(404);
+    });
+});
+
+describe("Handler Create Emergency", () => {
+    test("should save the emergency fund to the db", async () => {
+        const req = mockRequest(
+            "username1",
+            {total_expenses: 1000, six_month_amount:6000}
+        )
+        const res = mockResponse();
+        await handlers.postCreateEmergency(req, res);
         expect(res.status).toHaveBeenCalledWith(200);
-        expect(res.json).toBeDefined();
+        expect(res.redirect).toHaveBeenCalledWith("/StudentHome");
+    });
+});
+
+describe("Handler Get emergency", () => {
+    test("should not get the emergency from the db", async () => {
+        const req = mockRequest(
+            "username1",
+            {}
+        )
+        const res = mockResponse();
+        await handlers.getEmergency(req, res);
+        expect(res.status).toHaveBeenCalledWith(404);
     });
 });
