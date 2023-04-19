@@ -9,6 +9,7 @@ import GenericPlanner from "./components/GenericPlanner"
 import StudentHome from "./components/StudentHome"
 import CreateBudget from "./components/CreateBudget"
 import ViewBudget from "./components/ViewBudget"
+import CreateEmergency from "./components/CreateEmergency"
 
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/studenthome" element={<StudentHome />} />
           <Route path="/createbudget" element={<CreateBudget />} />
           <Route path="/viewbudget" element={<ViewBudget />} />
+          <Route path="/createemergency" element={<CreateEmergency />} />
         </Route>
       </Routes>
     </BrowserRouter>

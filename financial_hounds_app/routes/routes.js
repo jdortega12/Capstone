@@ -10,6 +10,8 @@ router.post('/login', handlers.postLogin)
 
 router.post('/createbudget', handlers.postCreateBudget)
 
+router.post('/createemergency', handlers.postCreateEmergency)
+
 router.get('/viewbudget', handlers.getBudget)
 
 router.get('/logout', handlers.getLogout)
