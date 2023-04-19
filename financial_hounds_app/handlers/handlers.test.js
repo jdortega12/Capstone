@@ -113,3 +113,28 @@ describe("Handler Get emergency", () => {
         expect(res.status).toHaveBeenCalledWith(404);
     });
 });
+
+describe("Handler Create Retirement", () => {
+    test("should save the Retirement fund to the db", async () => {
+        const req = mockRequest(
+            "username1",
+            {age: 32, pre_tax_income:80000, current_savings: 40000, monthly_savings: 500}
+        )
+        const res = mockResponse();
+        await handlers.postCreateRetirement(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.redirect).toHaveBeenCalledWith("/StudentHome");
+    });
+});
+
+describe("Handler Get Retirement", () => {
+    test("should not get the Retirement from the db", async () => {
+        const req = mockRequest(
+            "username1",
+            {}
+        )
+        const res = mockResponse();
+        await handlers.getRetirement(req, res);
+        expect(res.status).toHaveBeenCalledWith(404);
+    });
+});

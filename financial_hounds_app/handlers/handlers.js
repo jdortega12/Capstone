@@ -5,6 +5,8 @@ const budgetModel = require("../model/budget");
 const budgetCRUD = require("../model/budgetCRUD");
 const emergencyModel = require("../model/emergency");
 const emergencyCRUD = require("../model/emergencyCRUD");
+const retirementModel = require("../model/retirement");
+const retirementCRUD = require("../model/retirementCRUD");
 const app = express();
 
 //Student create
@@ -110,7 +112,45 @@ exports.getEmergency = async function(req, res){
   console.log("Username", busername);
   let emergency = await emergencyCRUD.getEmergency(busername);
   if(emergency != null){
-    return res.status(200).json({total_expenses: emergency.total_expenses, six_month_amount: emergency.six_month_amount});;
+    return res.status(200).json({total_expenses: emergency.total_expenses, six_month_amount: emergency.six_month_amount});
+  }else{
+    return res.status(404);
+  }
+}
+
+// Retirement Fund
+
+//Create Retirement
+exports.postCreateRetirement = function(req, res){
+  //If retirement already exists under this name => delete and create a new one
+  if(retirementCRUD.getRetirement(req.session.data) !== null){
+    deleted = retirementCRUD.deleteRetirement(req.session.data);
+  }
+  
+  let newRetirement = {};
+  newRetirement.username = req.session.data;
+  newRetirement.age = req.body.age;
+  newRetirement.pre_tax_income = req.body.pre_tax_income;
+  newRetirement.current_savings = req.body.current_savings;
+  newRetirement.monthly_savings = req.body.monthly_savings;
+
+  try{
+    savedRetirement = retirementCRUD.createRetirement(newRetirement);
+    console.log("Retirement Fund Created");
+    return res.status(200).redirect("/StudentHome");
+  } catch (error) {
+    return res.status(500);
+  }
+}
+
+//Get emergency based on username of student
+exports.getRetirement = async function(req, res){
+  let busername = req.session.data;
+  console.log("Username", busername);
+  let retirement = await retirementCRUD.getRetirement(busername);
+  if(retirement != null){
+    return res.status(200).json({age: retirement.age, pre_tax_income: retirement.pre_tax_income,
+    current_savings: retirement.current_savings, monthly_savings: retirement.monthly_savings});
   }else{
     return res.status(404);
   }
