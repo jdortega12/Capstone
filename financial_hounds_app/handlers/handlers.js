@@ -109,9 +109,8 @@ exports.getEmergency = async function(req, res){
   let busername = req.session.data;
   console.log("Username", busername);
   let emergency = await emergencyCRUD.getEmergency(busername);
-  console.log(emergency)
   if(emergency != null){
-    return res.status(200).send(emergency);
+    return res.status(200).json({total_expenses: emergency.total_expenses, six_month_amount: emergency.six_month_amount});;
   }else{
     return res.status(404);
   }

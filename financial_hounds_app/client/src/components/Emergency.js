@@ -16,7 +16,7 @@ const Emergency = () => {
             <row>
             <Nav className="me-auto">
                <Link className="myLinkBudget" to="/CreateEmergency"> Create Emergency Fund </Link>
-               <Link className="myLinkBudget"> View Emergency Fund </Link>
+               <Link className="myLinkBudget" to="/ViewEmergency"> View Emergency Fund </Link>
             </Nav>
             </row>
         </div>

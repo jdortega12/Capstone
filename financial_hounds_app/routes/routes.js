@@ -14,6 +14,8 @@ router.post('/createemergency', handlers.postCreateEmergency)
 
 router.get('/viewbudget', handlers.getBudget)
 
+router.get('/viewemergency', handlers.getEmergency)
+
 router.get('/logout', handlers.getLogout)
 
 module.exports = router;

@@ -134,10 +134,6 @@ const CreateEmergency = () => {
         <button onClick={()=> computeEmergency()}  className="myButtonCreateBudget">
             Compute Emergency Fund
         </button>
-        <div className="myBoxCreateBudget">
-            <h1 className="myPanelCreateBudget">Monthly Total Expenses: ${calculations.monthlyTotalExpenses}</h1>
-            <h1 className="myPanelCreateBudget">Six Month Amount: ${calculations.sixMonthAmount}</h1>
-        </div>
       </div>
       </div>
     );

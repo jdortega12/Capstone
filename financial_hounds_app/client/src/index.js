@@ -10,6 +10,7 @@ import StudentHome from "./components/StudentHome"
 import CreateBudget from "./components/CreateBudget"
 import ViewBudget from "./components/ViewBudget"
 import CreateEmergency from "./components/CreateEmergency"
+import ViewEmergency from "./components/ViewEmergency"
 
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/createbudget" element={<CreateBudget />} />
           <Route path="/viewbudget" element={<ViewBudget />} />
           <Route path="/createemergency" element={<CreateEmergency />} />
+          <Route path="/viewemergency" element={<ViewEmergency />} />
         </Route>
       </Routes>
     </BrowserRouter>
