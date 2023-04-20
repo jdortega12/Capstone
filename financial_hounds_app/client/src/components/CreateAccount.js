@@ -11,7 +11,7 @@ const CreateAccount = () => {
 
     const handleCreate = async(e) => {
       const studentData = {"name": name, "username": username, "password": password};
-      //alert(JSON.stringify(studentData));
+      alert("Creating your account!");
       
       try{
         await axios({
@@ -41,14 +41,14 @@ const CreateAccount = () => {
           />
         </div>
         <div className="mb-3">
-          <label className="myLabel">Username</label>
+          <label className="myLabel">Email</label>
           <input
           name="username"
           type="text" 
           value = {username}
           onChange = {(e) => setUsername(e.target.value)}
           className="form-control" 
-          placeholder="Enter username" />
+          placeholder="Enter email" />
         </div>
         <div className="mb-3">
           <label className="myLabel">Password</label>
@@ -67,6 +67,13 @@ const CreateAccount = () => {
           </button>
         </div>
       </form>
+
+    <div>
+      <p className="paragraphCreateAccount">
+            Disclaimer: Greyhound Financial Services will only use your inputted financial data for budget and financial planning
+            calculations.
+      </p>
+    </div>
     </div>
     );
 }

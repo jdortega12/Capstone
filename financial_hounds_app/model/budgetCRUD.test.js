@@ -4,7 +4,9 @@ const budgetCRUD = require("./budgetCRUD.js");
 const db = require("../setup/db");
 
 const budgetData = {
-
+  username: "test1",
+  disposable_income: 1000,
+  total_expenses: 200,
 };
 
 beforeAll(async () => {
@@ -28,6 +30,30 @@ afterAll(async () => {
       const savedBudget = await budgetCRUD.createBudget(validBudget);
       expect(savedBudget._id).toBeDefined();
       expect(savedBudget.username).toBe(budgetData.username);
+      expect(savedBudget.disposable_income).toBe(budgetData.disposable_income);
       expect(savedBudget.total_expenses).toBe(budgetData.total_expenses);
+    });
+
+    it("get budget", async () => {
+      const validBudget = new budgetModel(budgetData);
+      const savedBudget = await budgetCRUD.createBudget(validBudget);
+  
+      const foundBudget = await budgetCRUD.getBudget(savedBudget.username);
+      expect(foundBudget.username).toBe(budgetData.username);
+      expect(foundBudget.disposable_income).toBe(budgetData.disposable_income);
+      expect(foundBudget.total_expenses).toBe(budgetData.total_expenses);
+    });
+
+    it("delete budget", async () => {
+      const validBudget = new budgetModel(budgetData);
+      const savedBudget = await budgetCRUD.createBudget(validBudget);
+  
+      const deletedBudget = await budgetCRUD.deleteBudget(savedBudget.username);
+      expect(deletedBudget.username).toBe(budgetData.username);
+      expect(deletedBudget.disposable_income).toBe(budgetData.disposable_income);
+      expect(deletedBudget.total_expenses).toBe(budgetData.total_expenses);
+
+      const tryToFind = await budgetCRUD.getBudget(savedBudget.username);
+      expect(tryToFind).toBeNull();
     });
 });

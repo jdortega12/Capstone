@@ -27,6 +27,7 @@ const NavBar = () => {
       <Nav className="me-auto">
         <Link to="./About" style={{color: "white", padding: 10, textDecoration: 'none'}}>About</Link>
         <Link to="./CreateAccount" style={{color: "white", padding: 10, textDecoration: 'none'}}>Create Account</Link>
+        <Link to="./StudentHome" style={{color: "white", padding: 10, textDecoration: 'none'}}>Student Home</Link>
         <div className="myNavDiv">
         <Link to="./Login" style={{color: "white", padding: 10, textDecoration: 'none'}}>Login</Link>
         <button onClick={()=>handleLogout()} className="myNavButton">

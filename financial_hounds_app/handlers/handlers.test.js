@@ -21,9 +21,10 @@ const mockRequest = (sessionData, body) => ({
 
 const mockResponse = () => {
     const res = {};
-    res.redirect = jest.fn().mockReturnValue(res)
-    res.status = jest.fn().mockReturnValue(res)
-    return res
+    res.redirect = jest.fn().mockReturnValue(res);
+    res.status = jest.fn().mockReturnValue(res);
+    res.json = jest.fn().mockReturnValue(res);
+    return res;
 }
 
 describe("Handler Create Student", () => {
@@ -60,5 +61,80 @@ describe("Handler Logout Student", () => {
         expect(req.session.data).toBeNull();
         expect(res.status).toHaveBeenCalledWith(200);
         expect(res.redirect).toHaveBeenCalledWith("/Home");
+    });
+});
+
+describe("Handler Create Budget", () => {
+    test("should save the budget to the db", async () => {
+        const req = mockRequest(
+            "username1",
+            {disposable_income: 1000, total_expenses: 200}
+        )
+        const res = mockResponse();
+        await handlers.postCreateBudget(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.redirect).toHaveBeenCalledWith("/StudentHome");
+    });
+});
+
+describe("Handler Get Budget", () => {
+    test("should not get the budget from the db", async () => {
+        const req = mockRequest(
+            "username1",
+            {}
+        )
+        const res = mockResponse();
+        await handlers.getBudget(req, res);
+        expect(res.status).toHaveBeenCalledWith(404);
+    });
+});
+
+describe("Handler Create Emergency", () => {
+    test("should save the emergency fund to the db", async () => {
+        const req = mockRequest(
+            "username1",
+            {total_expenses: 1000, six_month_amount:6000}
+        )
+        const res = mockResponse();
+        await handlers.postCreateEmergency(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.redirect).toHaveBeenCalledWith("/StudentHome");
+    });
+});
+
+describe("Handler Get emergency", () => {
+    test("should not get the emergency from the db", async () => {
+        const req = mockRequest(
+            "username1",
+            {}
+        )
+        const res = mockResponse();
+        await handlers.getEmergency(req, res);
+        expect(res.status).toHaveBeenCalledWith(404);
+    });
+});
+
+describe("Handler Create Retirement", () => {
+    test("should save the Retirement fund to the db", async () => {
+        const req = mockRequest(
+            "username1",
+            {retirement_goal: 1200000, retirement_saved: 900000}
+        )
+        const res = mockResponse();
+        await handlers.postCreateRetirement(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.redirect).toHaveBeenCalledWith("/StudentHome");
+    });
+});
+
+describe("Handler Get Retirement", () => {
+    test("should not get the Retirement from the db", async () => {
+        const req = mockRequest(
+            "username1",
+            {}
+        )
+        const res = mockResponse();
+        await handlers.getRetirement(req, res);
+        expect(res.status).toHaveBeenCalledWith(404);
     });
 });

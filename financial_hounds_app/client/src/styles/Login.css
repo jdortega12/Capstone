@@ -1,4 +1,6 @@
 .myDivLogin{
+    margin-left: auto;
+    margin-right: auto;
     background-color: #0d4b34;
     height: 100vh;
 }
@@ -8,7 +10,8 @@
     align-items: center;
     height: auto;
     max-width: 30%;
-    margin-left: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .myHeaderLogin{
@@ -37,4 +40,4 @@ button:hover {
     background-color: #07090a;
     cursor: pointer;
     transition: 0.3s ease-in;
-  }
+}

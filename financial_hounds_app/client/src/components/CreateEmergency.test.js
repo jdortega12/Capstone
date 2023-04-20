@@ -1,10 +1,10 @@
 import React from 'react';
-import About from '../components/About';
+import CreateEmergency from '../components/CreateEmergency';
 import renderer from 'react-test-renderer';
 
-test("About Snapshot Test", ()=> {
+test("Create Emergency Snapshot Test", ()=> {
     const component = renderer.create(
-        <About />
+        <CreateEmergency />
     );
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();

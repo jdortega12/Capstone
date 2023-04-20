@@ -10,7 +10,7 @@ const Login = () => {
 
     const handleLogin = async(e) => {
       const loginData = {"username": username, "password": password};
-      //alert(JSON.stringify(loginData));
+      alert("Logging you in!");
       
       try{
         await axios({
@@ -25,17 +25,17 @@ const Login = () => {
     };
 
     return (
-      <div className="myDiv">
-        <form className="myForm">
+      <div className="myDivLogin">
+        <form className="myFormLogin">
             <h3 className="myLabelLogin">Login</h3>
             <div className="mb-3">
-                <label className="myLabelLogin">Username</label>
+                <label className="myLabelLogin">Email</label>
                 <input
                     type="text"
                     value = {username}
                     onChange = {(e) => setUsername(e.target.value)}
                     className="form-control"
-                    placeholder="Username"
+                    placeholder="Email"
                 />
         </div>
         <div className="mb-3">
@@ -45,11 +45,11 @@ const Login = () => {
                     value = {password}
                     onChange = {(e) => setPassword(e.target.value)}
                     className="form-control"
-                    placeholder="Username"
+                    placeholder="Password"
                 />
         </div>
         <div className="d-grid">
-          <button onClick={()=>handleLogin()} className="myButton">
+          <button onClick={()=>handleLogin()} className="myButtonLogin">
             Submit
           </button>
         </div>
