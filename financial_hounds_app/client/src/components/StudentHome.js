@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/StudentHome.css";
-import { Outlet } from "react-router-dom";
+import "../styles/Budget.css";
+import { Outlet, Link } from "react-router-dom";
 import { Nav } from 'react-bootstrap';
 import Budget from "./Budget";
 import Emergency from "./Emergency";
@@ -35,6 +36,15 @@ const StudentHome = () => {
       </div>
       <div>
       <Retirement />
+      </div>
+      <div className="myDivViewAll">
+      <h1 className="headerBudget">View All Financial Plans</h1>
+      <p className="paragraphBudget">
+                View all of your financial plans in one place.
+      </p>
+      <Nav className="me-auto">
+          <Link className="myLinkViewAll" to="/ViewAll"> View All Plans </Link>
+      </Nav>
       </div>
       </>
     );

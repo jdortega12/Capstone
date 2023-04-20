@@ -78,6 +78,7 @@ exports.getBudget = async function(req, res){
   console.log("Username", busername);
   let budget = await budgetCRUD.getBudget(busername);
   if(budget != null){
+    console.log("Budget found!");
     return res.status(200).json({disposable_income: budget.disposable_income, total_expenses: budget.total_expenses});
   }else{
     return res.status(404);
@@ -112,6 +113,7 @@ exports.getEmergency = async function(req, res){
   console.log("Username", busername);
   let emergency = await emergencyCRUD.getEmergency(busername);
   if(emergency != null){
+    console.log("Emergency fund found!");
     return res.status(200).json({total_expenses: emergency.total_expenses, six_month_amount: emergency.six_month_amount});
   }else{
     return res.status(404);
@@ -148,6 +150,7 @@ exports.getRetirement = async function(req, res){
   console.log("Username", busername);
   let retirement = await retirementCRUD.getRetirement(busername);
   if(retirement != null){
+    console.log("Retirement fund found!");
     return res.status(200).json({retirement_goal: retirement.retirement_goal, retirement_saved: retirement.retirement_saved});
   }else{
     return res.status(404);
