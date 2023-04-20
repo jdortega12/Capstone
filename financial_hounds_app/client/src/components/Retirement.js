@@ -15,8 +15,8 @@ const Retirement = () => {
             </p>
             <row>
             <Nav className="me-auto">
-               <Link className="myLinkBudget"> Create Retirement Fund </Link>
-               <Link className="myLinkBudget"> View Retirement Fund </Link>
+               <Link className="myLinkBudget" to="/CreateRetirement"> Create Retirement Fund </Link>
+               <Link className="myLinkBudget" to="/ViewRetirement"> View Retirement Fund </Link>
             </Nav>
             </row>
         </div>

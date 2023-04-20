@@ -130,10 +130,11 @@ const CreateEmergency = () => {
             type="text" 
             placeholder="Monthly groceries" />
         </div>
-
+        <div className="myButtonBox">
         <button onClick={()=> computeEmergency()}  className="myButtonCreateBudget">
             Compute Emergency Fund
         </button>
+        </div>
       </div>
       </div>
     );

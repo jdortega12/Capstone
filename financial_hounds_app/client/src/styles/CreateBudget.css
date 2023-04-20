@@ -6,11 +6,10 @@
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   }
 
-  html{
-    height: 100%;
-    background-color: #0d4b34;
-  }
-
+html{
+  height: 100%;
+  background-color: #0d4b34;
+}
 
 .headerCreateBudget {
     font-size: 75px;
@@ -40,6 +39,19 @@
     flex: 1;
 }
 
+.myLabelCreateRetirement{
+  color: white;
+  font-size: 20px;
+  flex: 1;
+}
+
+.myInputCreateRetirement{
+  margin-right: 13%;
+  flex: 1;
+  font-size: 20px;
+  display: block;
+}
+
 .myInputCreateBudget{
     margin-right: 3%;
     flex: 1;
@@ -60,6 +72,11 @@
     padding: 20px;
     display: flex;
   }
+
+  .myBoxCreateRetirement{
+    padding: 20px;
+    display: flex;
+  }
   
 .myPanelCreateBudget{
     flex: 1;
@@ -75,14 +92,17 @@
     display: flex;
   }
 
+  .myButtonBox{
+    display: flex;
+    justify-content: center;
+  }
   .myButtonCreateBudget{
-    margin-left: 43%;
-    margin-top: 30px;
+    margin-top: 3%;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     background-color: #282c34;
-    height: 10%;
+    height: 12%;
     width: 18%;
     color: white;
     text-decoration: none;

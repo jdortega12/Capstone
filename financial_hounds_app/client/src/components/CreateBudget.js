@@ -60,7 +60,7 @@ const CreateBudget = () => {
         <h1 className="headerCreateBudget"> Student Budget Planner </h1>
           <p className="paragraphCreateBudget">
             The Student Budget Planner will use your gross annual income to determine your take-home pay by deducting 
-            Federal tax (15%), State tax (%6), OASDI (3.25%), and Medicare (2.50%).
+            Federal tax (%15), State tax (%6), OASDI (%3.25), and Medicare (%2.50).
             You can also input your fixed expenses and variable expenses to see your total expenses and your
             disposible income. This number will be displayed as yearly and monthly. NOTE: Creating a new budget will replace
             any previously created one. 
@@ -93,9 +93,11 @@ const CreateBudget = () => {
             type="text" 
             placeholder="Variable expenses" />
         </div>
+        <div className="myButtonBox">
         <button onClick={()=> computeBudget()}  className="myButtonCreateBudget">
             Compute Budget
         </button>
+        </div>
       </div>
       </div>
     );
