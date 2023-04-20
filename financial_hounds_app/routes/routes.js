@@ -12,7 +12,7 @@ router.post('/createbudget', handlers.postCreateBudget);
 
 router.post('/createemergency', handlers.postCreateEmergency);
 
-router.post('/createretirement', handler.postCreateEmergency);
+router.post('/createretirement', handlers.postCreateRetirement);
 
 router.get('/viewbudget', handlers.getBudget);
 

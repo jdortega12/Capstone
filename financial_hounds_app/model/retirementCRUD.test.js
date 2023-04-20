@@ -5,10 +5,8 @@ const db = require("../setup/db");
 
 const retirementData = {
   username: "test1",
-  age: 32,
-  pre_tax_income: 80000,
-  current_savings: 40000,
-  monthly_savings: 500,
+  retirement_goal: 1200000,
+  retirement_saved: 900000,
 };
 
 beforeAll(async () => {
@@ -32,10 +30,8 @@ afterAll(async () => {
       const savedRetirement = await retirementCRUD.createRetirement(validRetirement);
       expect(savedRetirement._id).toBeDefined();
       expect(savedRetirement.username).toBe(retirementData.username);
-      expect(savedRetirement.age).toBe(retirementData.age);
-      expect(savedRetirement.pre_tax_income).toBe(retirementData.pre_tax_income);
-      expect(savedRetirement.current_savings).toBe(retirementData.current_savings);
-      expect(savedRetirement.monthly_savings).toBe(retirementData.monthly_savings);
+      expect(savedRetirement.retirement_goal).toBe(retirementData.retirement_goal);
+      expect(savedRetirement.retirement_saved).toBe(retirementData.retirement_saved);
     });
 
     it("get retirement", async () => {
@@ -44,10 +40,8 @@ afterAll(async () => {
   
       const foundRetirement = await retirementCRUD.getRetirement(savedRetirement.username);
       expect(foundRetirement.username).toBe(retirementData.username);
-      expect(foundRetirement.age).toBe(retirementData.age);
-      expect(foundRetirement.pre_tax_income).toBe(retirementData.pre_tax_income);
-      expect(foundRetirement.current_savings).toBe(retirementData.current_savings);
-      expect(foundRetirement.monthly_savings).toBe(retirementData.monthly_savings);
+      expect(foundRetirement.retirement_goal).toBe(retirementData.retirement_goal);
+      expect(foundRetirement.retirement_saved).toBe(retirementData.retirement_saved);
     });
 
     it("delete retirement", async () => {
@@ -56,10 +50,8 @@ afterAll(async () => {
   
       const deletedRetirement = await retirementCRUD.deleteRetirement(savedRetirement.username);
       expect(deletedRetirement.username).toBe(retirementData.username);
-      expect(deletedRetirement.age).toBe(retirementData.age);
-      expect(deletedRetirement.pre_tax_income).toBe(retirementData.pre_tax_income);
-      expect(deletedRetirement.current_savings).toBe(retirementData.current_savings);
-      expect(deletedRetirement.monthly_savings).toBe(retirementData.monthly_savings);
+      expect(deletedRetirement.retirement_goal).toBe(retirementData.retirement_goal);
+      expect(deletedRetirement.retirement_saved).toBe(retirementData.retirement_saved);
 
       const tryToFind = await retirementCRUD.getRetirement(savedRetirement.username);
       expect(tryToFind).toBeNull();

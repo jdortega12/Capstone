@@ -7,21 +7,13 @@ const RetirementSchema = new mongoose.Schema({
         required: true,
       },
 
-    age: {
+    retirement_goal: {
         type: Number,
     },
 
-    pre_tax_income: {
+    retirement_saved: {
         type: Number,
     },
-
-    current_savings: {
-        type: Number,
-    },
-
-    monthly_savings: {
-        type: Number,
-    }
 });
 
 const Retirement = mongoose.model("Retirement", RetirementSchema);

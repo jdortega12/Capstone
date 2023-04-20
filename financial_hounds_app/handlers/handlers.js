@@ -129,10 +129,9 @@ exports.postCreateRetirement = function(req, res){
   
   let newRetirement = {};
   newRetirement.username = req.session.data;
-  newRetirement.age = req.body.age;
-  newRetirement.pre_tax_income = req.body.pre_tax_income;
-  newRetirement.current_savings = req.body.current_savings;
-  newRetirement.monthly_savings = req.body.monthly_savings;
+  newRetirement.retirement_goal = req.body.retirement_goal;
+  newRetirement.retirement_saved = req.body.retirement_saved;
+
 
   try{
     savedRetirement = retirementCRUD.createRetirement(newRetirement);
@@ -149,8 +148,7 @@ exports.getRetirement = async function(req, res){
   console.log("Username", busername);
   let retirement = await retirementCRUD.getRetirement(busername);
   if(retirement != null){
-    return res.status(200).json({age: retirement.age, pre_tax_income: retirement.pre_tax_income,
-    current_savings: retirement.current_savings, monthly_savings: retirement.monthly_savings});
+    return res.status(200).json({retirement_goal: retirement.retirement_goal, retirement_saved: retirement.retirement_saved});
   }else{
     return res.status(404);
   }

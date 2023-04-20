@@ -118,7 +118,7 @@ describe("Handler Create Retirement", () => {
     test("should save the Retirement fund to the db", async () => {
         const req = mockRequest(
             "username1",
-            {age: 32, pre_tax_income:80000, current_savings: 40000, monthly_savings: 500}
+            {retirement_goal: 1200000, retirement_saved: 900000}
         )
         const res = mockResponse();
         await handlers.postCreateRetirement(req, res);
