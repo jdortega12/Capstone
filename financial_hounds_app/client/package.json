@@ -44,7 +44,7 @@
     ]
   },
   "jest": {
-    "transformIgnorePatterns":[
+    "transformIgnorePatterns": [
       "node_modules/?!@axios"
     ]
   }
