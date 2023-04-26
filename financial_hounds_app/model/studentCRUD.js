@@ -6,14 +6,9 @@ async function createStudent(newStudent){
   return student;
 }
 
-async function getStudent(username){
-  const student = await studentModel.findOne({username: username});
-  return student;
-}
-
 async function login(pusername, pwd){
     const student = await studentModel.findOne({username: pusername, password: pwd});
     return student;
 }
 
-module.exports = {createStudent, login, getStudent}
+module.exports = {createStudent, login}

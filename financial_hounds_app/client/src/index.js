@@ -7,7 +7,6 @@ import CreateAccount from "./components/CreateAccount";
 import Login from "./components/Login";
 import GenericPlanner from "./components/GenericPlanner";
 import StudentHome from "./components/StudentHome";
-import StudentProfile from "./components/StudentProfile";
 import CreateBudget from "./components/CreateBudget";
 import ViewBudget from "./components/ViewBudget";
 import CreateEmergency from "./components/CreateEmergency";
@@ -21,13 +20,12 @@ export default function App() {
       <Routes>
         <Route path="/" element={<NavBar />}>
           <Route index element={<Home />} />
-          <Route path="/Home" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/createaccount" element={<CreateAccount />} />
           <Route path="/login" element={<Login />} />
           <Route path="/about/genericplanner" element={<GenericPlanner />} />
           <Route path="/studenthome" element={<StudentHome />} />
-          <Route path="/studentprofile" element={<StudentProfile />} />
           <Route path="/createbudget" element={<CreateBudget />} />
           <Route path="/viewbudget" element={<ViewBudget />} />
           <Route path="/createemergency" element={<CreateEmergency />} />

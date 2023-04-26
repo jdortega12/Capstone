@@ -16,8 +16,6 @@ router.post('/createretirement', handlers.postCreateRetirement);
 
 router.get('/viewbudget', handlers.getBudget);
 
-router.get('/studentprofile', handlers.getProfile );
-
 router.get('/viewemergency', handlers.getEmergency);
 
 router.get('/viewretirement', handlers.getRetirement);
