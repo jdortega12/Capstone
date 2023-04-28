@@ -2,11 +2,8 @@ import React from "react";
 import "../styles/CreateBudget.css";
 import { useState} from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 const CreateRetirement = () => {
-
-    const navigate = useNavigate();
 
     const [inputs, setInputs] = useState({
       age: "",
@@ -60,7 +57,7 @@ const CreateRetirement = () => {
           method: "post",
           url: "/createretirement",
           data: retirementData,
-        }).then(navigate('/studenthome'));
+        });
       } catch(error){
         console.log(error)
       }

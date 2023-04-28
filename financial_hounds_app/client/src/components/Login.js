@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import "../styles/Login.css";
 import axios from 'axios';
 
@@ -8,7 +7,6 @@ import axios from 'axios';
 
 const Login = () => {
 
-    const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -22,7 +20,7 @@ const Login = () => {
           method: "post",
           url: "/login",
           data: loginData,
-        }).then(navigate('/studenthome'));
+        });
       } catch(error){
         console.log(error)
       }
