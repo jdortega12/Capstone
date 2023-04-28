@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import {Container, Nav, Navbar} from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from 'axios';
@@ -6,10 +6,11 @@ import "../styles/NavBar.css";
 
 const NavBar = () => {
 
+    const navigate = useNavigate();
+    
     const handleLogout = async(e) => {
     try{
-      //alert("Logout pressed");
-      await axios('/logout');
+      await axios('/logout').then(navigate('/home'));
     } catch(error){
       console.log(error)
     }
@@ -27,7 +28,6 @@ const NavBar = () => {
       <Nav className="me-auto">
         <Link to="./About" style={{color: "white", padding: 10, textDecoration: 'none'}}>About</Link>
         <Link to="./CreateAccount" style={{color: "white", padding: 10, textDecoration: 'none'}}>Create Account</Link>
-        <Link to="./StudentHome" style={{color: "white", padding: 10, textDecoration: 'none'}}>Student Home</Link>
         <div className="myNavDiv">
         <Link to="./Login" style={{color: "white", padding: 10, textDecoration: 'none'}}>Login</Link>
         <button onClick={()=>handleLogout()} className="myNavButton">
@@ -44,3 +44,5 @@ const NavBar = () => {
   };
   
 export default NavBar;
+
+//<Link to="./StudentHome" style={{color: "white", padding: 10, textDecoration: 'none'}}>Student Home</Link>

@@ -1,10 +1,12 @@
 import React from "react";
 import "../styles/CreateBudget.css";
-import { useState} from 'react';
+import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const CreateBudget = () => {
-
+  
+    const navigate = useNavigate();
     const [inputs, setInputs] = useState({
       income: "",
       fixedExpenses: "",
@@ -46,7 +48,7 @@ const CreateBudget = () => {
           method: "post",
           url: "/createbudget",
           data: budgetData,
-        });
+        }).then(navigate('/studenthome'));
       } catch(error){
         console.log(error)
       }
