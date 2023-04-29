@@ -7,11 +7,14 @@ const API_URL = '/viewstudents';
 
 const ViewStudents = () => {
 
-  /*const fetchData = async() => {
-    const emergencyData = await axios.get(API_URL, {responseType: "json"});
-    setExpenses(Number(emergencyData.data.total_expenses));
-    setSixMonth(Number(emergencyData.data.six_month_amount));
-  };*/
+  const [students, setStudents] = useState("");
+
+  const fetchData = async() => {
+    var students = {}
+    students = await axios.get(API_URL, {responseType: "json"});
+    students = students.data;
+    setStudents(students);
+  };
 
   useEffect(() => {
         fetchData();
@@ -19,9 +22,18 @@ const ViewStudents = () => {
 
     return (
       <div className="createBudget">
+        <div className="headerDivBudget">
+        <h1 className="headerBudget"> View All Students </h1>
         <div>
-        <h1 className="headerCreateBudget"> View All Students </h1>
-        <div className="myBoxViewEmergency">
+            {students.map((item, key)=>(
+                <div className="studentsTable">
+                    <p>{key + 1}. </p>
+                    <p>Name: {item.name}</p>
+                    <p>Email: {item.username}</p>
+                    <p>Class Year: {item.class_year}</p>
+                    <p>Level: {item.level}</p>
+                </div>
+            ))}
         </div>
       </div>
     </div>

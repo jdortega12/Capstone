@@ -40,6 +40,18 @@ describe("Handler Create Student", () => {
     });
 });
 
+describe("Handler Get Students", () => {
+    test("should not get the students from the db", async () => {
+        const req = mockRequest(
+            {},
+            {}
+        )
+        const res = mockResponse();
+        await handlers.getStudents(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+    });
+});
+
 describe("Handler Admin Student", () => {
     test("should save the admin to the db", async () => {
         const req = mockRequest(

@@ -24,6 +24,8 @@ router.get('/viewemergency', handlers.getEmergency);
 
 router.get('/viewretirement', handlers.getRetirement);
 
+router.get('/viewstudents', handlers.getStudents);
+
 router.get('/logout', handlers.getLogout);
 
 module.exports = router;

@@ -17,6 +17,7 @@ import ViewRetirement from "./components/ViewRetirement";
 import ViewAll from "./components/ViewAll";
 import AdminLogin from "./components/AdminLogin";
 import AdminHome from "./components/AdminHome";
+import ViewStudents from "./components/ViewStudents";
 
 export default function App() {
   return (
@@ -40,6 +41,7 @@ export default function App() {
           <Route path="/viewall" element={<ViewAll />} />
           <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path="/adminhome" element={<AdminHome />} />
+          <Route path="/viewstudents" element={<ViewStudents />} />
         </Route>
       </Routes>
       </ScrollTop>

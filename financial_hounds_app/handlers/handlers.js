@@ -27,6 +27,18 @@ exports.postCreate = function(req,res){
   }
 };
 
+//Get Students
+exports.getStudents = async function(req, res){
+  let students = await studentCRUD.getAllStudents();
+  if(students != null){
+    console.log("Students found!");
+    return res.status(200).json(students);
+  }else{
+    return res.status(404);
+  }
+}
+
+
 //Admin create
 exports.postCreateAdmin = function(req,res){
   let newAdmin = {};
