@@ -53,6 +53,19 @@ describe("Handler Login Student", () => {
     });
 });
 
+describe("Handler Login Admin", () => {
+    test("should login the admin", async () => {
+        const req = mockRequest(
+            {},
+            {username: "username1", password: "password"}
+        )
+        const res = mockResponse();
+        await handlers.postAdminLogin(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.redirect).toHaveBeenCalledWith("/Home");
+    });
+});
+
 describe("Handler Logout Student", () => {
     test("should logout the student", async () => {
         const req = mockRequest({username: "username1"})

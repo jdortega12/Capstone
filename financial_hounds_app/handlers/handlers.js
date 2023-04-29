@@ -1,6 +1,8 @@
 const express = require("express");
 const studentModel = require("../model/student");
 const studentCRUD = require("../model/studentCRUD");
+const adminModel = require("../model/admin");
+const adminCRUD = require("../model/adminCRUD");
 const budgetModel = require("../model/budget");
 const budgetCRUD = require("../model/budgetCRUD");
 const emergencyModel = require("../model/emergency");
@@ -32,6 +34,21 @@ exports.postLogin = function(req, res){
 
   let student = studentCRUD.login(pusername, pwd);
   if(student != null){
+    req.session.data = pusername;
+    console.log("Logged In")
+    console.log("DATA:", req.session.data)
+    return res.status(200).redirect("/Home");
+  }else{
+    return res.status(500).redirect("/Login");
+  }
+};
+
+exports.postAdminLogin = function(req, res){
+  pusername = req.body.username;
+  pwd = req.body.password;
+
+  let admin = adminCRUD.adminLogin(pusername, pwd);
+  if(admin != null){
     req.session.data = pusername;
     console.log("Logged In")
     console.log("DATA:", req.session.data)
