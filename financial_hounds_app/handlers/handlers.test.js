@@ -40,6 +40,19 @@ describe("Handler Create Student", () => {
     });
 });
 
+describe("Handler Admin Student", () => {
+    test("should save the admin to the db", async () => {
+        const req = mockRequest(
+            {},
+            {name: "name1", username: "username1", password: "password"}
+        )
+        const res = mockResponse();
+        await handlers.postCreateAdmin(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.redirect).toHaveBeenCalledWith("/Home");
+    });
+});
+
 describe("Handler Login Student", () => {
     test("should login the student", async () => {
         const req = mockRequest(

@@ -27,6 +27,22 @@ exports.postCreate = function(req,res){
   }
 };
 
+//Admin create
+exports.postCreateAdmin = function(req,res){
+  let newAdmin = {};
+  newAdmin.name = req.body.name;
+  newAdmin.username = req.body.username;
+  newAdmin.password = req.body.password;
+
+  try{
+    savedAdmin = adminCRUD.createAdmin(newAdmin);
+    console.log("Admin Created")
+    return res.status(200).redirect("/Home");
+  } catch (error) {
+    return res.status(500).redirect("/Home");
+  }
+};
+
 //Login student
 exports.postLogin = function(req, res){
   pusername = req.body.username;
