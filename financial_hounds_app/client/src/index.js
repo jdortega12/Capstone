@@ -16,6 +16,7 @@ import CreateRetirement from "./components/CreateRetirement";
 import ViewRetirement from "./components/ViewRetirement";
 import ViewAll from "./components/ViewAll";
 import AdminLogin from "./components/AdminLogin";
+import AdminHome from "./components/AdminHome";
 
 export default function App() {
   return (
@@ -38,6 +39,7 @@ export default function App() {
           <Route path="/viewretirement" element={<ViewRetirement />} />
           <Route path="/viewall" element={<ViewAll />} />
           <Route path="/adminlogin" element={<AdminLogin />} />
+          <Route path="/adminhome" element={<AdminHome />} />
         </Route>
       </Routes>
       </ScrollTop>

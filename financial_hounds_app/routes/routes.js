@@ -8,9 +8,9 @@ router.post('/createaccount', handlers.postCreate);
 
 router.post('/login', handlers.postLogin);
 
-router.post('/adminlogin', handlers.postCreateAdmin);
+router.post('/createadmin', handlers.postCreateAdmin);
 
-router.post('/adminlogin', handlers.postAdminlogin);
+router.post('/adminlogin', handlers.postAdminLogin);
 
 router.post('/createbudget', handlers.postCreateBudget);
 

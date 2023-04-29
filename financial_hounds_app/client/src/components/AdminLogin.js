@@ -2,11 +2,13 @@ import React from "react";
 import { useState } from 'react';
 import "../styles/Login.css";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const AdminLogin = () => {
 
+    const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -20,7 +22,7 @@ const AdminLogin = () => {
           method: "post",
           url: "/adminlogin",
           data: adminData,
-        });
+        }).then(navigate('/adminhome'));
       } catch(error){
         console.log(error)
       }
