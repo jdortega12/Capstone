@@ -1,0 +1,56 @@
+# Iteration Testing
+## Model Testing
+--------------------|---------|----------|---------|---------|-------------------
+File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+--------------------|---------|----------|---------|---------|-------------------
+All files           |     100 |       50 |     100 |     100 |                   
+ model              |     100 |      100 |     100 |     100 |                   
+  budget.js         |     100 |      100 |     100 |     100 |                   
+  budgetCRUD.js     |     100 |      100 |     100 |     100 |                   
+  emergency.js      |     100 |      100 |     100 |     100 |                   
+  emergencyCRUD.js  |     100 |      100 |     100 |     100 |                   
+  retirement.js     |     100 |      100 |     100 |     100 |                   
+  retirementCRUD.js |     100 |      100 |     100 |     100 |                   
+  student.js        |     100 |      100 |     100 |     100 |                   
+  studentCRUD.js    |     100 |      100 |     100 |     100 |                   
+ setup              |     100 |       50 |     100 |     100 |                   
+  db.js             |     100 |       50 |     100 |     100 | 17-25             
+--------------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 4 passed, 4 total
+Tests:       11 passed, 11 total
+Snapshots:   0 total
+Time:        5.323 s
+## Handler Testing
+--------------------|---------|----------|---------|---------|-----------------------------
+File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s           
+--------------------|---------|----------|---------|---------|-----------------------------
+All files           |   95.03 |       50 |     100 |   95.03 |                             
+ handlers           |   91.39 |       50 |     100 |   91.39 |                             
+  handlers.js       |   91.39 |       50 |     100 |   91.39 | 24,40,70,81,105,115,141,151 
+ model              |     100 |      100 |     100 |     100 |                             
+  budget.js         |     100 |      100 |     100 |     100 |                             
+  budgetCRUD.js     |     100 |      100 |     100 |     100 |                             
+  emergency.js      |     100 |      100 |     100 |     100 |                             
+  emergencyCRUD.js  |     100 |      100 |     100 |     100 |                             
+  retirement.js     |     100 |      100 |     100 |     100 |                             
+  retirementCRUD.js |     100 |      100 |     100 |     100 |                             
+  student.js        |     100 |      100 |     100 |     100 |                             
+  studentCRUD.js    |     100 |      100 |     100 |     100 |                             
+ setup              |     100 |       50 |     100 |     100 |                             
+  db.js             |     100 |       50 |     100 |     100 | 17-25                       
+--------------------|---------|----------|---------|---------|-----------------------------
+Test Suites: 1 passed, 1 total
+Tests:       9 passed, 9 total
+Snapshots:   0 total
+Time:        2.081 s, estimated 5 s
+## React Snapshot Testing
+----------|---------|----------|---------|---------|-------------------
+File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------|---------|----------|---------|---------|-------------------
+All files |       0 |        0 |       0 |       0 |                   
+----------|---------|----------|---------|---------|-------------------
+
+Test Suites: 7 passed, 7 total
+Tests:       7 passed, 7 total
+Snapshots:   7 passed, 7 total
