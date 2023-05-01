@@ -1,9 +1,9 @@
-.myDiv{
+.myDivCreateAccount{
     background-color: #0d4b34;
     height: 100vh;
 }
 
-.myForm{
+.myFormCreateAccount{
     justify-content: center;
     align-items: center;
     height: auto;
@@ -12,11 +12,11 @@
     margin-right: auto;
 }
 
-.myLabel{
+.myLabelCreateAccount{
     color: white;
 }
 
-.myButton{
+.myButtonCreateAccount{
   margin-left: 60px;
   border: none;
   border-radius: 5px;
