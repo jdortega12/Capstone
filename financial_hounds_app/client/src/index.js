@@ -19,6 +19,7 @@ import ViewAll from "./components/ViewAll";
 import AdminLogin from "./components/AdminLogin";
 import AdminHome from "./components/AdminHome";
 import ViewStudents from "./components/ViewStudents";
+import Forum from "./components/Forum";
 
 export default function App() {
   return (
@@ -26,8 +27,8 @@ export default function App() {
     <ScrollTop>
       <Routes>
         <Route path="/" element={<NavBar />}>
-          <Route index element={<Home />} />
-          <Route path="/Home" element={<Home />} />
+        <Route index element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/createaccount" element={<CreateAccount />} />
           <Route path="/login" element={<Login />} />
@@ -44,6 +45,7 @@ export default function App() {
           <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path="/adminhome" element={<AdminHome />} />
           <Route path="/viewstudents" element={<ViewStudents />} />
+          <Route path="/forum" element={<Forum />} />
         </Route>
       </Routes>
       </ScrollTop>
