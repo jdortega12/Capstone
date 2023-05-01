@@ -176,3 +176,42 @@ describe("Handler Get Retirement", () => {
         expect(res.status).toHaveBeenCalledWith(404);
     });
 });
+
+describe("Handler create forum", () => {
+    test("should save the forum to the db", async () => {
+        const req = mockRequest(
+            {},
+            {year: "2023", students: [], comments: []}
+        )
+        const res = mockResponse();
+        await handlers.postCreateForum(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.redirect).toHaveBeenCalledWith("/Home");
+    });
+});
+
+describe("Handler update forum students", () => {
+    test("should updated the forum's students", async () => {
+        const req = mockRequest(
+            {},
+            {year: "2023", students: ["2@gmail.com", "4@gmail.com"]}
+        )
+        const res = mockResponse();
+        await handlers.postUpdateStudents(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.redirect).toHaveBeenCalledWith("/Home");
+    });
+});
+
+describe("Handler update forum students", () => {
+    test("should updated the forum's students", async () => {
+        const req = mockRequest(
+            {},
+            {year: "2023", comments: ["hi", "Hello"]}
+        )
+        const res = mockResponse();
+        await handlers.postUpdateComments(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.redirect).toHaveBeenCalledWith("/Home");
+    });
+});

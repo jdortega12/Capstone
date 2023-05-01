@@ -9,6 +9,9 @@ const emergencyModel = require("../model/emergency");
 const emergencyCRUD = require("../model/emergencyCRUD");
 const retirementModel = require("../model/retirement");
 const retirementCRUD = require("../model/retirementCRUD");
+const forumModel = require("../model/forum");
+const forumCRUD = require("../model/forumCRUD");
+
 const app = express();
 
 //Student create
@@ -201,6 +204,47 @@ exports.getRetirement = async function(req, res){
     return res.status(404);
   }
 }
+
+
+  //Forum
+  exports.postCreateForum = async function(req, res){
+    let newForum = {};
+    newForum.year = req.body.year;
+    newForum.students = req.body.students;
+    newForum.comments = req.body.comments;
+  
+    try{
+      savedForum = forumCRUD.createForum(newForum);
+      console.log("Forum Created")
+      return res.status(200).redirect("/Home");
+    } catch (error) {
+      return res.status(500).redirect("/Home");
+    }
+  }
+
+  exports.postUpdateStudents = async function(req, res){
+    let forumYear = req.body.year;
+    let newStudents = req.body.students;
+    try{
+      updatedForum = forumCRUD.updateStudents(forumYear, newStudents);
+      console.log("Forum Students Updated")
+      return res.status(200).redirect("/Home");
+    } catch (error) {
+      return res.status(500).redirect("/Home");
+    }
+  }
+
+  exports.postUpdateComments = async function(req, res){
+    let forumYear = req.body.year;
+    let newComments = req.body.comments;
+    try{
+      updatedForum = forumCRUD.updateStudents(forumYear, newComments);
+      console.log("Forum Students Updated")
+      return res.status(200).redirect("/Home");
+    } catch (error) {
+      return res.status(500).redirect("/Home");
+    }
+  }
 
 
 exports.getProfile = async function(req, res){
