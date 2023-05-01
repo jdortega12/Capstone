@@ -10,8 +10,10 @@ const Retirement = () => {
         <div className="headerDivBudget">
           <h1 className="headerBudget">Retirement Fund Financial Planning</h1>
             <p className="paragraphBudget">
-                Student budget planning involves various calculations. 
-                When creating your budget first input your Gross Annual Income.
+                Retirement planning involves your age, pre-tax income, current retirement savings,
+                and your monthly savings towards retirement. Using this informatino a goal amount will be calculated
+                for your retirement. Furthermore, the amount you will save with your current saving tactics 
+                will be calculated as well. 
             </p>
             <row>
             <Nav className="me-auto">
