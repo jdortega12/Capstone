@@ -205,6 +205,7 @@ exports.getRetirement = async function(req, res){
   }
 }
 
+
   //Forum
   exports.postCreateForum = async function(req, res){
     let newForum = {};
@@ -245,4 +246,16 @@ exports.getRetirement = async function(req, res){
     }
   }
 
+
+exports.getProfile = async function(req, res){
+  let busername = req.session.data;
+  console.log("Username", busername);
+  let student = await studentCRUD.getStudent(busername);
+  if(student != null){
+    return res.status(200).json({  name: student.name, username: student.username, password: student.password, class_year: student.class_year
+       , level:student.level} );
+  }else{
+    return res.status(404);
+  }
+}
 
