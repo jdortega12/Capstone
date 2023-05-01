@@ -5,10 +5,9 @@ import axios from 'axios';
 import "../styles/NavBar.css";
 
 const NavBar = () => {
-
+    
     const handleLogout = async(e) => {
     try{
-      //alert("Logout pressed");
       await axios('/logout');
     } catch(error){
       console.log(error)
@@ -44,3 +43,4 @@ const NavBar = () => {
   };
   
 export default NavBar;
+

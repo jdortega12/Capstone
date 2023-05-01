@@ -9,6 +9,12 @@ const studentData = {
   password: "123",
 };
 
+const studentData2 = {
+  name: "Danny",
+  username: "dgillcrist",
+  password: "456",
+};
+
 beforeAll(async () => {
   await db.setUp();
 });
@@ -41,5 +47,16 @@ afterAll(async () => {
         const foundStudent = await studentCRUD.login(savedStudent.username, savedStudent.password);
         expect(foundStudent.username).toBe(studentData.username);
         expect(foundStudent.password).toBe(studentData.password);
+      });
+
+      it("find all students", async () => {
+        const validStudent = new studentModel(studentData);
+        const savedStudent = await studentCRUD.createStudent(validStudent);
+
+        const validStudent2 = new studentModel(studentData2);
+        const savedStudent2 = await studentCRUD.createStudent(validStudent2);
+    
+        const foundStudents = await studentCRUD.getAllStudents();
+        expect(foundStudents.length).toEqual(2);
       });
 });

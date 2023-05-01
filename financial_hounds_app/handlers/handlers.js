@@ -1,6 +1,8 @@
 const express = require("express");
 const studentModel = require("../model/student");
 const studentCRUD = require("../model/studentCRUD");
+const adminModel = require("../model/admin");
+const adminCRUD = require("../model/adminCRUD");
 const budgetModel = require("../model/budget");
 const budgetCRUD = require("../model/budgetCRUD");
 const emergencyModel = require("../model/emergency");
@@ -25,6 +27,34 @@ exports.postCreate = function(req,res){
   }
 };
 
+//Get Students
+exports.getStudents = async function(req, res){
+  let students = await studentCRUD.getAllStudents();
+  if(students != null){
+    console.log("Students found!");
+    return res.status(200).json(students);
+  }else{
+    return res.status(404);
+  }
+}
+
+
+//Admin create
+exports.postCreateAdmin = function(req,res){
+  let newAdmin = {};
+  newAdmin.name = req.body.name;
+  newAdmin.username = req.body.username;
+  newAdmin.password = req.body.password;
+
+  try{
+    savedAdmin = adminCRUD.createAdmin(newAdmin);
+    console.log("Admin Created")
+    return res.status(200).redirect("/Home");
+  } catch (error) {
+    return res.status(500).redirect("/Home");
+  }
+};
+
 //Login student
 exports.postLogin = function(req, res){
   pusername = req.body.username;
@@ -32,6 +62,21 @@ exports.postLogin = function(req, res){
 
   let student = studentCRUD.login(pusername, pwd);
   if(student != null){
+    req.session.data = pusername;
+    console.log("Logged In")
+    console.log("DATA:", req.session.data)
+    return res.status(200).redirect("/Home");
+  }else{
+    return res.status(500).redirect("/Login");
+  }
+};
+
+exports.postAdminLogin = function(req, res){
+  pusername = req.body.username;
+  pwd = req.body.password;
+
+  let admin = adminCRUD.adminLogin(pusername, pwd);
+  if(admin != null){
     req.session.data = pusername;
     console.log("Logged In")
     console.log("DATA:", req.session.data)
@@ -78,6 +123,7 @@ exports.getBudget = async function(req, res){
   console.log("Username", busername);
   let budget = await budgetCRUD.getBudget(busername);
   if(budget != null){
+    console.log("Budget found!");
     return res.status(200).json({disposable_income: budget.disposable_income, total_expenses: budget.total_expenses});
   }else{
     return res.status(404);
@@ -112,6 +158,7 @@ exports.getEmergency = async function(req, res){
   console.log("Username", busername);
   let emergency = await emergencyCRUD.getEmergency(busername);
   if(emergency != null){
+    console.log("Emergency fund found!");
     return res.status(200).json({total_expenses: emergency.total_expenses, six_month_amount: emergency.six_month_amount});
   }else{
     return res.status(404);
@@ -148,6 +195,7 @@ exports.getRetirement = async function(req, res){
   console.log("Username", busername);
   let retirement = await retirementCRUD.getRetirement(busername);
   if(retirement != null){
+    console.log("Retirement fund found!");
     return res.status(200).json({retirement_goal: retirement.retirement_goal, retirement_saved: retirement.retirement_saved});
   }else{
     return res.status(404);
