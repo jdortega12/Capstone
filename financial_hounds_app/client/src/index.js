@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollTop from "./components/ScrollTop"
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import About from "./components/About";
@@ -14,10 +15,15 @@ import CreateEmergency from "./components/CreateEmergency";
 import ViewEmergency from "./components/ViewEmergency";
 import CreateRetirement from "./components/CreateRetirement";
 import ViewRetirement from "./components/ViewRetirement";
+import ViewAll from "./components/ViewAll";
+import AdminLogin from "./components/AdminLogin";
+import AdminHome from "./components/AdminHome";
+import ViewStudents from "./components/ViewStudents";
 
 export default function App() {
   return (
     <BrowserRouter>
+    <ScrollTop>
       <Routes>
         <Route path="/" element={<NavBar />}>
           <Route index element={<Home />} />
@@ -34,8 +40,13 @@ export default function App() {
           <Route path="/viewemergency" element={<ViewEmergency />} />
           <Route path="/createretirement" element={<CreateRetirement />} />
           <Route path="/viewretirement" element={<ViewRetirement />} />
+          <Route path="/viewall" element={<ViewAll />} />
+          <Route path="/adminlogin" element={<AdminLogin />} />
+          <Route path="/adminhome" element={<AdminHome />} />
+          <Route path="/viewstudents" element={<ViewStudents />} />
         </Route>
       </Routes>
+      </ScrollTop>
     </BrowserRouter>
   );
 }

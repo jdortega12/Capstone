@@ -2,27 +2,27 @@ import React from "react";
 import { useState } from 'react';
 import "../styles/Login.css";
 import axios from 'axios';
-import { Outlet, Link } from "react-router-dom";
-import { Nav } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 
 
-const Login = () => {
+const AdminLogin = () => {
 
+    const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     const handleLogin = async(e) => {
 
-      const loginData = {"username": username, "password": password};
+      const adminData = {"username": username, "password": password};
       alert("Logging you in!");
 
       try{
         await axios({
           method: "post",
-          url: "/login",
-          data: loginData,
-        });
+          url: "/adminlogin",
+          data: adminData,
+        }).then(navigate('/adminhome'));
       } catch(error){
         console.log(error)
       }
@@ -31,7 +31,7 @@ const Login = () => {
     return (
       <div className="myDivLogin">
         <form className="myFormLogin">
-            <h3 className="myLabelLogin">Login</h3>
+            <h3 className="myLabelLogin">Admin Login</h3>
             <div className="mb-3">
                 <label className="myLabelLogin">Email</label>
                 <input
@@ -57,14 +57,9 @@ const Login = () => {
             Submit
           </button>
         </div>
-        <Nav className="me-auto">
-               <Link className="admin" to="/AdminLogin"> Admin Login </Link>
-        </Nav>
         </form>
-        <Outlet />
       </div>
-      
     );
   }
   
-export default Login;
+export default AdminLogin;

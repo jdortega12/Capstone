@@ -23,7 +23,8 @@
 }
 
 .myButtonLogin{
-  margin-left: 60px;
+  margin-left: auto;
+  margin-right: auto;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -40,4 +41,9 @@ button:hover {
     background-color: #07090a;
     cursor: pointer;
     transition: 0.3s ease-in;
+}
+
+.admin{
+    margin-left: auto;
+    margin-right: auto;
 }
