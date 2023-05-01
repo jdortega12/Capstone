@@ -14,14 +14,15 @@ import CreateEmergency from "./components/CreateEmergency";
 import ViewEmergency from "./components/ViewEmergency";
 import CreateRetirement from "./components/CreateRetirement";
 import ViewRetirement from "./components/ViewRetirement";
+import Forum from "./components/Forum";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<NavBar />}>
-          <Route index element={<Home />} />
-          <Route path="/Home" element={<Home />} />
+        <Route index element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/createaccount" element={<CreateAccount />} />
           <Route path="/login" element={<Login />} />
@@ -34,6 +35,7 @@ export default function App() {
           <Route path="/viewemergency" element={<ViewEmergency />} />
           <Route path="/createretirement" element={<CreateRetirement />} />
           <Route path="/viewretirement" element={<ViewRetirement />} />
+          <Route path="/forum" element={<Forum />} />
         </Route>
       </Routes>
     </BrowserRouter>
