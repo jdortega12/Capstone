@@ -40,6 +40,31 @@ describe("Handler Create Student", () => {
     });
 });
 
+describe("Handler Get Students", () => {
+    test("should not get the students from the db", async () => {
+        const req = mockRequest(
+            {},
+            {}
+        )
+        const res = mockResponse();
+        await handlers.getStudents(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+    });
+});
+
+describe("Handler Admin Student", () => {
+    test("should save the admin to the db", async () => {
+        const req = mockRequest(
+            {},
+            {name: "name1", username: "username1", password: "password"}
+        )
+        const res = mockResponse();
+        await handlers.postCreateAdmin(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.redirect).toHaveBeenCalledWith("/Home");
+    });
+});
+
 describe("Handler Get Student", () => {
     test("should get the student from the database", async () => {
 
@@ -64,6 +89,19 @@ describe("Handler Login Student", () => {
         )
         const res = mockResponse();
         await handlers.postLogin(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.redirect).toHaveBeenCalledWith("/Home");
+    });
+});
+
+describe("Handler Login Admin", () => {
+    test("should login the admin", async () => {
+        const req = mockRequest(
+            {},
+            {username: "username1", password: "password"}
+        )
+        const res = mockResponse();
+        await handlers.postAdminLogin(req, res);
         expect(res.status).toHaveBeenCalledWith(200);
         expect(res.redirect).toHaveBeenCalledWith("/Home");
     });

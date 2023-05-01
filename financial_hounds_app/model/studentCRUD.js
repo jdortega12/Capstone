@@ -16,4 +16,11 @@ async function login(pusername, pwd){
     return student;
 }
 
-module.exports = {createStudent, login, getStudent}
+
+async function getAllStudents(){
+  const students = await studentModel.find();
+  return students;
+}
+
+module.exports = {createStudent, login, getStudent, getAllStudents}
+

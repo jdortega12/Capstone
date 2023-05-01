@@ -41,7 +41,7 @@ const ViewRetirement = () => {
         <div className="myBoxCreateBudget">
             <h1 className="myPanelCreateBudget">Retirement Goal: ${goal}</h1>
             <h1 className="myPanelCreateBudget">Retirement Amount Saved: ${saved}</h1>
-            <h1 className="myPanelCreateBudget">Need to Save: ${difference}</h1>
+            <h1 className="myPanelCreateBudget">Amount to Save: ${difference}</h1>
         </div>
       </div>
       </div>
