@@ -40,6 +40,22 @@ describe("Handler Create Student", () => {
     });
 });
 
+describe("Handler Get Student", () => {
+    test("should get the student from the database", async () => {
+
+
+        const req = mockRequest(
+            {session: {data: "username1"}},
+        );
+        const student = {name: "name1", username: "username1", password: "password", class_year: "2023", level: "beginner"};
+        const res = mockResponse();
+        await handlers.getProfile(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.json).toHaveBeenCalledWith(student);
+
+    });
+});
+
 describe("Handler Login Student", () => {
     test("should login the student", async () => {
         const req = mockRequest(
