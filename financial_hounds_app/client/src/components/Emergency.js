@@ -10,8 +10,8 @@ const Emergency = () => {
         <div className="headerDivBudget">
           <h1 className="headerBudget">Emergency Fund Financial Planning</h1>
             <p className="paragraphBudget">
-                Student budget planning involves various calculations. 
-                When creating your budget first input your Gross Annual Income.
+                Emergency planning involves various calculations. Including your total expenses for a given month and
+                the amount needed to cover those expenses for six months. 
             </p>
             <row>
             <Nav className="me-auto">
