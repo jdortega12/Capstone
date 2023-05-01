@@ -1,0 +1,79 @@
+.forum {
+    background-color: #0d4b34;
+    align-content: center;
+    padding: 20px;
+    
+  }
+  
+  .row {
+    display: flex;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #04301f;
+    border-radius: 5px;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 5px;
+    color: #ecf0f1;
+  }
+
+  
+  button[type="submit"] {
+    background-color:#0c3d2a;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  
+  label[for="comment"] {
+    font-weight: bold;
+    color: #ecf0f1;
+  }
+  
+
+  
+  .class{
+    font-size: 14px;
+    margin: 0;
+    color: #bdc3c7;
+  }
+  
+  .commentCount {
+    font-size: 14px;
+    margin: 0;
+    margin-left: 10px;
+    color: #bdc3c7;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #ecf0f1;
+  }
+  
+  .comment-bubble {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #1d7b57;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  
+  .comment-bubble:before {
+    content: "";
+    position: absolute;
+    border-style:solid;
+    border-width: 0 10px 10px 0;
+    border-color: transparent #1d7b57 transparent transparent;
+    right: 100%;
+    top: 10px;
+    }
+    
+   
+   
+   
+ 
