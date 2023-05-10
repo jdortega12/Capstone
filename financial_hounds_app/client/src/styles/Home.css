@@ -10,14 +10,14 @@
   
 }
 
-.headerContainer {
+.headerContainerHome {
   height: auto;
   width: auto;
   visibility: visible;
   margin-left: 50px;
 }
 
-.header {
+.headerHome {
   margin-bottom: 50px;
   justify-content: center;
   align-items: center;
@@ -27,7 +27,7 @@
   color: white;
 }
 
-.paragraph {
+.paragraphHome {
   margin-left: 200px;
   justify-content: center;
   align-items: center;
@@ -36,7 +36,7 @@
   color: white;
 }
 
-.link {
+.linkHome {
   margin-left: 400px;
   color: black;
   border: none;
@@ -61,7 +61,7 @@
     align-items: center;
   }
 
-  .headerContainer {
+  .headerContainerHome {
     margin-left: 0px;
     border-radius: 10px;
     padding: 10px;
@@ -74,24 +74,24 @@
     color: white;
   }
 
-  .headerContainer h1 {
+  .headerContainerHome h1 {
     font-size: 40px;
     height: 30px;
     color: white;
   }
 
-  .headerContainer p {
+  .headerContainerHome p {
     font-size: 30px;
     color: white;
   }
 
-  .headerContainer button {
+  .headerContainerHome button {
     background-color: white;
     color: #282c34;
     margin-bottom: 30px;
   }
 
-  .headerContainer button:hover {
+  .headerContainerHome button:hover {
     background-color: rgb(225, 225, 225);
     color: #121619;
   }

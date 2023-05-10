@@ -5,10 +5,10 @@ const Home = () => {
     return (
       <>
       <div className="home">
-        <div className="headerContainer">
-          <h1 className="header"> Loyola University Maryland </h1>
+        <div className="headerContainerHome">
+          <h1 className="headerHome"> Loyola University Maryland </h1>
           <div>
-          <p className="paragraph"> Greyhound Financial Planning</p>
+          <p className="paragraphHome"> Greyhound Financial Planning</p>
           </div>
         </div>
       </div>
