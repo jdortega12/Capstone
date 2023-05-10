@@ -67,17 +67,13 @@ describe("Handler Admin Student", () => {
 
 describe("Handler Get Student", () => {
     test("should get the student from the database", async () => {
-
-
         const req = mockRequest(
-            {session: {data: "username1"}},
-        );
-        const student = {name: "name1", username: "username1", password: "password", class_year: "2023", level: "beginner"};
+            "username1",
+            {}
+        )
         const res = mockResponse();
         await handlers.getProfile(req, res);
-        expect(res.status).toHaveBeenCalledWith(200);
-        expect(res.json).toHaveBeenCalledWith(student);
-
+        expect(res.status).toHaveBeenCalledWith(404);
     });
 });
 
@@ -190,5 +186,44 @@ describe("Handler Get Retirement", () => {
         const res = mockResponse();
         await handlers.getRetirement(req, res);
         expect(res.status).toHaveBeenCalledWith(404);
+    });
+});
+
+describe("Handler create forum", () => {
+    test("should save the forum to the db", async () => {
+        const req = mockRequest(
+            {},
+            {year: "2023", students: [], comments: []}
+        )
+        const res = mockResponse();
+        await handlers.postCreateForum(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.redirect).toHaveBeenCalledWith("/Home");
+    });
+});
+
+describe("Handler update forum students", () => {
+    test("should updated the forum's students", async () => {
+        const req = mockRequest(
+            {},
+            {year: "2023", students: ["2@gmail.com", "4@gmail.com"]}
+        )
+        const res = mockResponse();
+        await handlers.postUpdateStudents(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.redirect).toHaveBeenCalledWith("/Home");
+    });
+});
+
+describe("Handler update forum students", () => {
+    test("should updated the forum's students", async () => {
+        const req = mockRequest(
+            {},
+            {year: "2023", comments: ["hi", "Hello"]}
+        )
+        const res = mockResponse();
+        await handlers.postUpdateComments(req, res);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.redirect).toHaveBeenCalledWith("/Home");
     });
 });

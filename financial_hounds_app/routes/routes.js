@@ -18,6 +18,12 @@ router.post('/createemergency', handlers.postCreateEmergency);
 
 router.post('/createretirement', handlers.postCreateRetirement);
 
+router.post('/createforum', handlers.postCreateForum);
+
+router.post('/updatestudents', handlers.postUpdateStudents);
+
+router.post('/updatecomments', handlers.postUpdateComments);
+
 router.get('/viewbudget', handlers.getBudget);
 
 router.get('/studentprofile', handlers.getProfile );

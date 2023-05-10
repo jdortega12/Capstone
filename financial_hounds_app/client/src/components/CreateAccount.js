@@ -26,11 +26,11 @@ const CreateAccount = () => {
     };
 
     return (
-    <div className="myDiv">
-      <form className="myForm" method='POST'>
-        <h3 className="myLabel">Create Account</h3>
+    <div className="myDivCreateAccount">
+      <form className="myFormCreateAccount" method='POST'>
+        <h3 className="myLabelCreateAccount">Create Account</h3>
         <div className="mb-3">
-          <label className="myLabel">Full name</label>
+          <label className="myLabelCreateAccount">Full name:</label>
           <input
             name="name"
             type="text"
@@ -41,7 +41,7 @@ const CreateAccount = () => {
           />
         </div>
         <div className="mb-3">
-          <label className="myLabel">Email</label>
+          <label className="myLabelCreateAccount">Email:</label>
           <input
           name="username"
           type="text" 
@@ -51,7 +51,7 @@ const CreateAccount = () => {
           placeholder="Enter email" />
         </div>
         <div className="mb-3">
-          <label className="myLabel">Password</label>
+          <label className="myLabelCreateAccount">Password:</label>
           <input
             name="password"
             value = {password}
@@ -62,7 +62,7 @@ const CreateAccount = () => {
           />
         </div>
         <div className="d-grid">
-          <button onClick={()=>handleCreate()} className="myButton">
+          <button onClick={()=>handleCreate()} className="myButtonCreateAccount">
             Submit
           </button>
         </div>

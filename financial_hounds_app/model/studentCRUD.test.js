@@ -59,21 +59,18 @@ afterAll(async () => {
         const foundStudents = await studentCRUD.getAllStudents();
         expect(foundStudents.length).toEqual(2);
       });
-});
 
-
-describe("getStudent function", () => {
-it("should return the student with the specified username", async () => {
-  // Create a student with the desired username
-  const validStudent = new studentModel(studentData);
-  await studentCRUD.createStudent(validStudent);
-
-  // Call getStudent with the desired username
-  const result = await getStudent("jortega");
-
-  // Expect the result to be the student with the desired username
-  expect(result.username).toBe("jortega");
-  expect(result.name).toBe("jaymin");
-  expect(result.password).toBe("123");
-});
+      it("should return the student with the specified username", async () => {
+        // Create a student with the desired username
+        const validStudent = new studentModel(studentData);
+        savedStudent = await studentCRUD.createStudent(validStudent);
+      
+        // Call getStudent with the desired username
+        const foundStudent = await studentCRUD.getStudent(savedStudent.username);
+      
+        // Expect the result to be the student with the desired username
+        expect(foundStudent.name).toBe(savedStudent.name);
+        expect(foundStudent.username).toBe(savedStudent.username);
+        expect(foundStudent.password).toBe(savedStudent.password);
+      });
 });
