@@ -29,6 +29,7 @@ const NavBar = () => {
         <Link to="./StudentHome" style={{color: "white", padding: 10, textDecoration: 'none'}}>Student Home</Link>
         <Link to="./StudentProfile" style={{color: "white", padding: 10, textDecoration: 'none'}}>Student Profile</Link>
         <Link to="./Forum" style={{color: "white", padding: 10, textDecoration: 'none'}}>Forum</Link>
+        <Link to="./ViewStocks" style={{color: "white", padding: 10, textDecoration: 'none'}}>Stocks</Link>
         <div className="myNavDiv">
         <Link to="./Login" style={{color: "white", padding: 10, textDecoration: 'none'}}>Login</Link>
         <button onClick={()=>handleLogout()} className="myNavButton">

@@ -49,13 +49,14 @@ const Forum = () => {
             id="comment"
             value={newComment}
             onChange={(event) => setNewComment(event.target.value)}
+            autoComplete="off"
           />
           <button type="submit">Submit</button>
         </form>
         <ul>
           {comments.map((comment, index) => (
             <li key={index}>
-              <div className="comment-bubble">
+              <div className="commentBubble">
                 <p>
                   <strong>{comment.studentName}:</strong> {comment.text}
                 </p>

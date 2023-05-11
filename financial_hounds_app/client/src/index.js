@@ -20,6 +20,8 @@ import AdminLogin from "./components/AdminLogin";
 import AdminHome from "./components/AdminHome";
 import ViewStudents from "./components/ViewStudents";
 import Forum from "./components/Forum";
+import ViewStocks from "./components/ViewStocks";
+import StockList from "./components/StockList";
 
 export default function App() {
   return (
@@ -46,6 +48,10 @@ export default function App() {
           <Route path="/adminhome" element={<AdminHome />} />
           <Route path="/viewstudents" element={<ViewStudents />} />
           <Route path="/forum" element={<Forum />} />
+          <Route path="/viewstocks" element={<ViewStocks />} />
+          <Route path="/stocklist" element={<StockList />} />
+
+
         </Route>
       </Routes>
       </ScrollTop>

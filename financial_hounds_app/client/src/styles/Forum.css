@@ -55,15 +55,21 @@
     color: #ecf0f1;
   }
   
-  .comment-bubble {
+  .commentBubble {
     padding: 10px;
     border-radius: 5px;
     background-color: #1d7b57;
     margin-bottom: 10px;
     position: relative;
+    font-size: 18px;
+    color: #ffffff;
+  }
+
+  .commentBubble .timestamp {
+    font-size: 12px;
   }
   
-  .comment-bubble:before {
+  .commentBubble:before {
     content: "";
     position: absolute;
     border-style:solid;
