@@ -15,6 +15,7 @@
   width: auto;
   visibility: visible;
   margin-left: 50px;
+  text-align: center;
 }
 
 .headerHome {
@@ -28,13 +29,57 @@
 }
 
 .paragraphHome {
-  margin-left: 200px;
   justify-content: center;
   align-items: center;
   font-size: 40px;
   font-weight: lighter;
-  color: white;
+  color: rgb(255, 255, 255);
 }
+
+
+.professorTipBox {
+  padding: 10px;
+  margin-top: 20px;
+  align-content: center;
+  border: #07090a;
+}
+
+.ptbContainer {
+  width: 320px;
+  padding: 20px;
+  border: 5px solid gray;
+  margin: 0;
+  background-color: white; /* Added background color */
+  text-align: center; /* Center the content */
+}
+
+.tod {
+  display: flex;
+  font-size: 24px;
+  margin-bottom: 10px;
+  justify-content: center; /* Center the content horizontally */
+}
+
+.thetip {
+  display: flex;
+  font-size: 20px;
+  justify-content: center; /* Center the content horizontally */
+}
+
+
+
+.input[type="text"] {
+  display: flex;
+
+  width: 300px;
+  height: 30px;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+
+
 
 .linkHome {
   margin-left: 400px;
